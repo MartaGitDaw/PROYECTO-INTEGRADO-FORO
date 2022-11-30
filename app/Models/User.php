@@ -10,6 +10,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+// Spatie
+use Spatie\Permission\Traits\hasRoles;
+
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -17,6 +21,8 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    // Spatie
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +31,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'bio',
         'email',
         'password',
     ];
