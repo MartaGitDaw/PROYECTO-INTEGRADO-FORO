@@ -24,10 +24,11 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->unique()->firstName().' '.$this->faker->lastName().' '.$this->faker->lastName();
         return [
-            'name' => $this->faker->name(),
+            'name' => $name,
             'bio' => $this->faker->sentence(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'email' => strtolower(preg_replace("/[^A-Za-z0-9]/", "", iconv('UTF-8', 'ASCII//TRANSLIT', str_replace(' ','.',$name)))).'@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
