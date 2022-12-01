@@ -34,8 +34,14 @@
                                         </div>
                                     </td>
                                     <td class="px-3 py-2 border-b border-gray-200 bg-white text-sm">
-                                        <x-blue-button-link>Modificar</x-blue-button-link>
-                                        <x-danger-button-link>Eliminar</x-danger-button-link>
+                                        <div class="inline-flex">
+                                            <x-blue-button-link href="{{route('admin.categories.edit', $category->id)}}">Modificar</x-blue-button-link>
+                                            <form action="{{route('admin.categories.destroy', $category->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <x-dark-button>Eliminar</x-dark-button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
