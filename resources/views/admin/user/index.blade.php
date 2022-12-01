@@ -71,7 +71,7 @@
                                                                 @method('POST')
                                                                     <button type="submit"
                                                                         class="hover:shadow-form rounded-md bg-[#6A64F1] px-3 py-1 text-base font-semibold text-white outline-none">
-                                                                        Hacer
+                                                                        Make moderator
                                                                     </button>
                                                             </form>
                                                             {{-- @endif --}}
@@ -89,7 +89,7 @@
 
                                                                         <button type="submit"
                                                                             class="hover:shadow-form rounded-md bg-[#6A64F1] px-3 py-1 text-base font-semibold text-white outline-none">
-                                                                            remove privileges
+                                                                            Remove privileges
                                                                         </button>
                                                                     </form>
                                                                 @endif

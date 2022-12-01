@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -45,9 +46,13 @@ Route::middleware([
     Route::resource('/user', UserController::class);
     Route::post('/user/{user}', [UserController::class, 'assignRole'])->name('user.roles.assign');
     Route::delete('/user/{user}/roles/{role}', [UserController::class, 'removeRole'])->name('user.roles.remove');
+
+    // Categories
+    Route::resource('/categories', CategoryController::class);
 });
 
 // MODERATOR
+/**  */
 Route::middleware([
     'auth:sanctum',
     'role:moderator',

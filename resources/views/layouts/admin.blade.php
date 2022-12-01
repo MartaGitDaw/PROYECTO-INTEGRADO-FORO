@@ -57,7 +57,7 @@
                     </div>
                     <nav :class="{ 'block': open, 'hidden': !open }"
                         class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                        <x-foro-admin-link href="{{ route('admin.user.index') }}" :active="request()->routeIs('admin.user.*')">Moderators</x-foro-admin-link>
+                        <x-foro-admin-link href="{{ route('admin.user.index') }}" :active="request()->routeIs('admin.user.*')">Users</x-foro-admin-link>
                     </nav>
 
                 </div>
