@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
         // Admin
         $this->call(AdminSeeder::class);
 
+         // Categories
+         $this->call(CategorySeeder::class);
+
         // Usuarios
         \App\Models\User::factory(10)->create();
     }
