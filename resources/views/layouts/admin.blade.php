@@ -58,13 +58,20 @@
                     <nav :class="{ 'block': open, 'hidden': !open }"
                         class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
                         <x-foro-admin-link href="{{ route('admin.user.index') }}" :active="request()->routeIs('admin.user.*')">Users</x-foro-admin-link>
+                    @role('admin')
                         <x-foro-admin-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.*')">Categories</x-foro-admin-link>
-
+                    @endrole
                     </nav>
                 </div>
                 {{-- Contenido --}}
                 <div class="flex w-full">
-                    {{ $slot }}
+                    <div class="py-12 w-full">
+                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                                {{ $slot }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
