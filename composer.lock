@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29fc65990a64d8e8f75d996cbe372ecf",
+    "content-hash": "11216b01af0946e36152d32908914f73",
     "packages": [
+        {
+            "name": "arifszn/reddit-image-fetcher",
+            "version": "v2.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arifszn/reddit-image-fetcher-php.git",
+                "reference": "9c80bed4c114c4a0534dec2dfecd1eeb1002d120"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arifszn/reddit-image-fetcher-php/zipball/9c80bed4c114c4a0534dec2dfecd1eeb1002d120",
+                "reference": "9c80bed4c114c4a0534dec2dfecd1eeb1002d120",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "arifszn\\RedditImageFetcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MD. Ariful Alam",
+                    "email": "arifulalamszn@gmail.com",
+                    "homepage": "https://arifszn.github.io"
+                }
+            ],
+            "description": "A PHP package for fetching reddit images, memes, wallpapers and more",
+            "homepage": "https://github.com/arifszn/reddit-image-fetcher-php",
+            "keywords": [
+                "meme",
+                "memes",
+                "random memes",
+                "random wallpaper",
+                "reddit",
+                "reddit image",
+                "reddit meme",
+                "reddit wallpaper",
+                "wallpaper",
+                "wallpapers"
+            ],
+            "support": {
+                "issues": "https://github.com/arifszn/reddit-image-fetcher-php/issues",
+                "source": "https://github.com/arifszn/reddit-image-fetcher-php/tree/v2.0.10"
+            },
+            "time": "2022-01-05T15:14:38+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.7",
@@ -2127,6 +2178,58 @@
                 }
             ],
             "time": "2022-08-08T13:52:53+00:00"
+        },
+        {
+            "name": "mitogh/random-image",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mitogh/Random-Image.git",
+                "reference": "fdb522c996482e96ac3f9d969337833d485dede8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mitogh/Random-Image/zipball/fdb522c996482e96ac3f9d969337833d485dede8",
+                "reference": "fdb522c996482e96ac3f9d969337833d485dede8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.*",
+                "squizlabs/php_codesniffer": "2.*",
+                "wp-coding-standards/wpcs": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mitogh\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Crisoforo Gaspar Hernandez",
+                    "email": "github@crisoforo.com"
+                }
+            ],
+            "description": "Retrive random images from the library of attachments.",
+            "homepage": "https://github.com/mitogh/Random-Image",
+            "keywords": [
+                "attachments",
+                "images",
+                "random",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/mitogh/Random-Image/issues",
+                "source": "https://github.com/mitogh/Random-Image/tree/master"
+            },
+            "time": "2016-01-02T14:53:22+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -8226,6 +8329,70 @@
                 }
             ],
             "time": "2020-09-28T06:39:44+00:00"
+        },
+        {
+            "name": "smknstd/fakerphp-picsum-images",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smknstd/fakerphp-picsum-images.git",
+                "reference": "30d05a8081b0c2953f21fe3184d242a85d987c1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smknstd/fakerphp-picsum-images/zipball/30d05a8081b0c2953f21fe3184d242a85d987c1d",
+                "reference": "30d05a8081b0c2953f21fe3184d242a85d987c1d",
+                "shasum": ""
+            },
+            "require": {
+                "fakerphp/faker": "^1.10",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/ray": "^1.28",
+                "vimeo/psalm": "^4.8"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Smknstd\\FakerPicsumImages\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arnaud Becher",
+                    "email": "arnaud.becher@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Alternative image provider for fakerphp using picsum.photos ",
+            "homepage": "https://github.com/smknstd/fakerphp-picsum-images",
+            "keywords": [
+                "faker",
+                "images",
+                "php",
+                "picsum"
+            ],
+            "support": {
+                "issues": "https://github.com/smknstd/fakerphp-picsum-images/issues",
+                "source": "https://github.com/smknstd/fakerphp-picsum-images/tree/v1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/smknstd",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-10-11T08:45:27+00:00"
         },
         {
             "name": "spatie/backtrace",

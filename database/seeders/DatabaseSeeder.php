@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,10 +21,19 @@ class DatabaseSeeder extends Seeder
         // Admin
         $this->call(AdminSeeder::class);
 
-         // Categories
-         $this->call(CategorySeeder::class);
-
         // Usuarios
         \App\Models\User::factory(10)->create();
+
+        // Categories
+        $this->call(CategorySeeder::class);
+
+        // Borrar la carpeta
+        Storage::deleteDirectory('images-threads');
+        // Crear la carpeta
+        Storage::makeDirectory('images-threads');
+
+        // Crear Hilos
+        \App\Models\Thread::factory(30)->create();
+
     }
 }

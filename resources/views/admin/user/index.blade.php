@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <div class="container mx-auto px-4 sm:px-8">
+    <div class="container mx-auto px-4 sm:px-8 w-full">
         <div class="py-8">
             <div class="flex justify-between">
                 <h2 class="text-2xl font-semibold leading-tight">Users</h2>
@@ -59,7 +59,7 @@
                                     </td>
                                     </td>
                                     <td class="px-3 border-b border-gray-200 bg-white text-sm">
-                                        <div class="text-gray-900 whitespace-no-wrap">
+                                        <div class="text-gray-900 whitespace-no-wrap inline-flex">
                                             <div>
                                                 {{-- @if ($user->roles->name != 'moderator') --}}
                                                 <form action="{{ route('admin.user.roles.assign', $user->id) }}"
