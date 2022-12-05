@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ThreadController;
 use App\Models\Category;
 use App\Models\Thread;
 use Illuminate\Support\Facades\Route;
@@ -25,11 +26,8 @@ Route::get('/', function () {
 })->name('welcome');
 
 // ver todas las categorias
-Route::get('/welcome/categories', [CategoryController::class, 'index'])->name('welcome.categories');
-Route::get('/welcome/categories', [CategoryController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
-
-
-
+//Route::get('/welcome/categories', [CategoryController::class, 'index'])->name('welcome.categories');
+Route::get('/category/{$category_id}/threads', [ThreadController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
 
 // USERS VERIFIED
 Route::middleware([

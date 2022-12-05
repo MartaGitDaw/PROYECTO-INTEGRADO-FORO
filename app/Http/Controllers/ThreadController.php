@@ -14,7 +14,6 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -49,7 +48,7 @@ class ThreadController extends Controller
         //
     }
 
-   
+
 
     /**
      * Show the form for editing the specified resource.
@@ -84,4 +83,12 @@ class ThreadController extends Controller
     {
         //
     }
+
+
+    public function categoryShowThreads(Request $request){
+        $threads = Thread::where('category_id', $request->id);
+        return view('welcome.threads', compact('threads'));
+    }
+
+    
 }

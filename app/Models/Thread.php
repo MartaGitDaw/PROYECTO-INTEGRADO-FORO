@@ -11,6 +11,11 @@ class Thread extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'titulo',
+        'descripcion',
+        'image',
+    ];
 
     // cada hilo está dentro de una categoría
     public function category(): BelongsTo{

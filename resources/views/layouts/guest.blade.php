@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="fixed w-full top-0 dark:bg-gray-800 flex justify-between h-16">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="font-sans antialiased">
+    <nav x-data="{ open: false }"
+        class="fixed w-full top-0 border-b text-gray-700 bg-white dark:text-gray-200 dark:bg-gray-800 ">
+        <div class="fixed w-full top-0 dark:bg-gray-800 flex justify-between h-16 ">
+
             <div class="flex mx-12">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -35,7 +40,8 @@
                             <a href="{{ url('/dashboard') }}"
                                 class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
+                                in</a>
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
                                     class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
@@ -45,8 +51,10 @@
                 @endif
             </div>
         </div>
-        <div class="mt-12">
-            {{ $slot }}
-        </div>
-    </body>
+    </nav>
+    <div class="mt-12">
+        {{ $slot }}
+    </div>
+</body>
+
 </html>

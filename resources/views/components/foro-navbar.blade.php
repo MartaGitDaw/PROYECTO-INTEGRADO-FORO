@@ -1,5 +1,4 @@
 <!-- component -->
-<!-- component -->
 <div class="min-h-screen flex flex-col flex-auto flex-shrink-0  bg-gray-50 text-gray-800">
     <div class="fixed flex flex-col left-0 w-64 bg-gray-900 h-full shadow-lg">
         <div class="flex items-center pl-6 h-20 border-b border-gray-800">

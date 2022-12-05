@@ -61,13 +61,6 @@ class CategoryController extends Controller
         //
     }
 
-    // devolver todos los hilos de la categoría
-    public function categoryShowThreads(Category $category)
-    {
-        $threads = Thread::all();
-        return view('welcome.categories-show-threads', compact( 'category','threads'));
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -109,4 +102,6 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('admin.categories.index')->with('info', 'Category deleted');
     }
+
+   
 }

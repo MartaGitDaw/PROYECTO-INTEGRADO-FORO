@@ -5,7 +5,6 @@
     <!-- component -->
 
     @foreach ($threads as $thread)
-        @if ($thread->category_id == $category->id)
             <div class="container mx-auto px-4 py-8 sm:px-8 flex justify-center">
                 <div class="rounded overflow-hidden border w-full lg:w-8/12 md:w-8/12 bg-white mx-3 md:mx-0 lg:mx-0">
                     <div class="w-full flex justify-between p-3">
@@ -44,7 +43,6 @@
                     </div>
                 </div>
             </div>
-        @endif
     @endforeach
     <x-foro-footer></x-foro-footer>
 </x-guest-layout>
