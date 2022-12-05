@@ -1,6 +1,6 @@
 <!-- component -->
 <div class="min-h-screen flex flex-col flex-auto flex-shrink-0  bg-gray-50 text-gray-800">
-    <div class="fixed flex flex-col left-0 w-64 bg-gray-900 h-full shadow-lg">
+    <div class="fixed flex flex-col left-0 w-64 dark:bg-gray-800 h-full shadow-lg mt-0">
         <div class="flex items-center pl-6 h-20 border-b border-gray-800">
             <img src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t1.0-9/117334168_2606581056324669_4951020710334194218_o.jpg?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_eui2=AeFo4bRKc5SfTQvzhwotnTaOfj1P6rO41HF-PU_qs7jUcU1pCerqu3HUsOB0yKyJQwnrgz8Au7GZADcpedo6WgM4&_nc_ohc=DWpkI3p4RSUAX_hKF_Y&_nc_ht=scontent.fmnl13-1.fna&oh=c13c63ee952123b14f0da72b99ccecc8&oe=6087FEC5"
                 alt=""
