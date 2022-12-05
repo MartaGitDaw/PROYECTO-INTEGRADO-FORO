@@ -16,5 +16,8 @@ class Thread extends Model
     public function category(): BelongsTo{
         return $this->belongsTo(Category::class);
     }
-
+     // cada hilo tiene 1 usuario
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class);
+    }
 }

@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\Category;
+use App\Models\Thread;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,17 +20,27 @@ use Illuminate\Support\Facades\Route;
 
 // PUBLIC
 Route::get('/', function () {
-    return view('welcome');
-});
+        $threads = Thread::orderBy('id', 'desc')->get();
+        return view('welcome', compact('threads'));
+})->name('welcome');
 
-// USERS
+// ver todas las categorias
+Route::get('/welcome/categories', [CategoryController::class, 'index'])->name('welcome.categories');
+Route::get('/welcome/categories', [CategoryController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
+
+
+
+
+// USERS VERIFIED
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $threads = Thread::orderBy('id', 'desc')->get();
+        $categories = Category::orderBy('id', 'desc')->get();
+        return view('dashboard', compact('threads', $categories));
     })->name('dashboard');
 });
 

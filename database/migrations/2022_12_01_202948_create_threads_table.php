@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo')->unique();
-            $table->text('descripcion');
+            $table->string('title')->unique();
+            $table->text('description');
             $table->string('image');
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -21,8 +21,8 @@ class ThreadFactory extends Factory
     {
         $this->faker->addProvider(new \Smknstd\FakerPicsumImages\FakerPicsumImagesProvider($this->faker));
         return [
-            'titulo'=>ucfirst($this->faker->unique()->words(5,true)),
-            'descripcion'=>$this->faker->text(),
+            'title'=>ucfirst($this->faker->unique()->words(5,true)),
+            'description'=>$this->faker->text(),
             'image'=>'images-threads/'.$this->faker->image('public/storage/images-threads', 640, 480, false),
             'user_id'=>User::all()->random()->id,
             'category_id'=>Category::all()->random()->id

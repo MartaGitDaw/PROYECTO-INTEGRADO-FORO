@@ -1,6 +1,13 @@
 <x-admin-layout>
+
     <div class="container mx-auto px-4 sm:px-8 py-8">
         <div class='mx-auto space-y-6'>
+            <a href="{{route ('admin.index')}}" class="hover:underline"><small class="text-sm text-gray-500">admin</small></a>
+            >
+            <a href="{{route ('admin.categories.index')}}" class="hover:underline"><small class="text-sm text-gray-500">categories</small></a>
+            >
+            <a href="#" class="hover:underline"><small class="text-sm text-gray-500">create</small></a>
+
             <form action="{{ route('admin.categories.store') }}" method="POST">
                 @csrf
 

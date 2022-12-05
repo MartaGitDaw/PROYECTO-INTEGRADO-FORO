@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         $categories = Category::all();
         return view('admin.categories.index', compact('categories'));
     }
@@ -38,11 +40,11 @@ class CategoryController extends Controller
     {
         // validaciones
         $request->validate([
-            'name'=>['required', 'string', 'unique:categories,name'],
+            'name' => ['required', 'string', 'unique:categories,name'],
         ]);
 
         Category::create([
-            'name'=>$request->name,
+            'name' => $request->name,
         ]);
 
         return redirect()->route('admin.categories.index')->with('info', 'Category created');
@@ -57,6 +59,13 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+    }
+
+    // devolver todos los hilos de la categoría
+    public function categoryShowThreads(Category $category)
+    {
+        $threads = Thread::all();
+        return view('welcome.categories-show-threads', compact( 'category','threads'));
     }
 
     /**
@@ -79,9 +88,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-         // validaciones
-         $request->validate([
-            'name'=>['required', 'string', 'unique:categories,name'],
+        // validaciones
+        $request->validate([
+            'name' => ['required', 'string', 'unique:categories,name'],
         ]);
 
         $category->update($request->all());

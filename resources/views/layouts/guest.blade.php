@@ -13,8 +13,39 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
+    <body class="font-sans antialiased">
+        <div class="fixed w-full top-0 dark:bg-gray-800 flex justify-between h-16">
+            <div class="flex mx-12">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('welcome') }}">
+                        {{-- <img src="{{ asset('storage/logo/logo.png') }}" class="block h-9 w-auto"> --}}
+                        <x-jet-application-mark class="block h-9 w-auto" />
+                    </a>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        {{-- <x-foro-nav-link href="#" :active="request()->routeIs('admin*')"> --}}
+                        <label class="text-sm font-medium leading-5 text-gray-900 dark:text-blue-500">Foro</label>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 px-2 flex flex-row-reverse text-sm mx-12">
+                @if (Route::has('login'))
+                    <div class="top-0 block">
+                        @auth
+                            <a href="{{ url('/dashboard') }}"
+                                class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div class="mt-12">
             {{ $slot }}
         </div>
     </body>

@@ -27,57 +27,10 @@
 </head>
 
 <body class="font-sans antialiased">
-    <x-jet-banner />
-
-    <div class="min-h-screen bg-gray-300">
-        @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        {{-- @if (isset($header))
-            <header class="bg-white shadow ">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif --}}
-
-        <!-- Page Content -->
-        <main>
-            <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
-                {{-- Barra de Navegación lateral ('Alpine.js') --}}
-                <div @click.away="open = false"
-                    class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white md:w-64 dark:text-gray-200 dark:bg-gray-800"
-                    x-data="{ open: false }">
-                    <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-                        @role('admin')
-                            <a href="{{ route('admin.index') }}"
-                                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
-                                Admin-
-                            </a>
-                        @endrole
-                        @role('moderator')
-                            <a href="{{ route('admin.index') }}"
-                                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
-                                moderator
-                            @endrole
-                        </a>
-                    </div>
-                    <nav :class="{ 'block': open, 'hidden': !open }"
-                        class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                        <x-foro-admin-link href="{{ route('admin.user.index') }}" :active="request()->routeIs('admin.user.*')">Users
-                        </x-foro-admin-link>
-                        @role('admin')
-                            <x-foro-admin-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.*')">Categories
-                            </x-foro-admin-link>
-                        @endrole
-                    </nav>
-                </div>
-                {{-- Contenido --}}
-                <div class="flex w-full ">
-                    {{ $slot }}
-                </div>
-            </div>
-        </main>
+    @livewire('navigation-menu')
+    <!-- Page Content -->
+    <div class="mt-12">
+        {{ $slot }}
     </div>
 
     @stack('modals')

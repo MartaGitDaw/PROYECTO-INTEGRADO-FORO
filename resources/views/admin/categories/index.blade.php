@@ -1,6 +1,9 @@
 <x-admin-layout>
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8">
+            <a href="{{route ('admin.index')}}" class="hover:underline"><small class="text-sm text-gray-500">admin</small></a>
+            >
+            <a href="#" class="hover:underline"><small class="text-sm text-gray-500">categories</small></a>
             <div class="flex justify-between">
                 <h2 class="text-2xl font-semibold leading-tight">Categories</h2>
                 <div>
