@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "arifszn/reddit-image-fetcher": "^2.0",
+
         "guzzlehttp/guzzle": "^7.2",
         "laravel-lang/lang": "^12.5",
         "laravel/framework": "^9.19",
@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
         "mitogh/random-image": "^1.0",
+        "owenvoke/blade-fontawesome": "^2.1",
         "spatie/laravel-permission": "^5.7"
     },
     "require-dev": {
