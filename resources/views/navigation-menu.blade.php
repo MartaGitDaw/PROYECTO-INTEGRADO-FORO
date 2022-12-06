@@ -23,11 +23,6 @@
                 @endrole
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-foro-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-foro-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-foro-nav-link href="#" >
                         {{ __('Home') }}
                     </x-foro-nav-link>
                 </div>
@@ -85,12 +80,12 @@
                 @endif
 
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="lg:hidden ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                    <img class="h-8 w-8 rounded-full object-cover border-2 border-blue-500" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Str::substr(Auth::user()->name, 0, 2)}}" />
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
@@ -160,9 +155,6 @@
                 @endrole
             </div>
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link> 
-            <x-jet-responsive-nav-link href="#" :active="request()->routeIs('dashboard')">
                 {{ __('Home') }}
             </x-jet-responsive-nav-link>
         </div>

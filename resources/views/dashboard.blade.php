@@ -7,7 +7,7 @@
     @foreach ($threads as $thread)
         <div class="container mx-auto px-4 py-4 sm:px-8 flex justify-center">
             <x-foro-navbar></x-foro-navbar>
-            <div class="rounded overflow-hidden border w-full lg:w-8/12 md:w-8/12 bg-white mx-3 md:mx-0 lg:mx-0">
+            <div class="mt-5 rounded overflow-hidden border w-full lg:w-8/12 md:w-8/12 bg-white mx-3 md:mx-0 lg:mx-0">
                 <div class="w-full flex justify-between p-3">
                     <div class="flex">
                         <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden">
