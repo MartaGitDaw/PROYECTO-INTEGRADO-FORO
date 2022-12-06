@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <div class="container mx-auto mt-4 flex justify-center">
+    <div class="container mx-auto mt-5 flex shrink-0 justify-center md:justify-between">
         <x-foro-navbar></x-foro-navbar>
         <div class="mt-5 rounded overflow-hidden w-full lg:w-8/12 md:w-8/12 bg-white mx-3 md:mx-0 lg:mx-0">
             <div class="py-8">

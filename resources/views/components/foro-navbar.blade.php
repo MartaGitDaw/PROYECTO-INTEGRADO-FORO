@@ -1,5 +1,5 @@
 <!-- component -->
-<div class="min-h-screen hidden lg:flex flex-col flex-auto flex-shrink-0  bg-gray-50 text-gray-800 ms:hidden">
+<div class="min-h-screen hidden lg:flex flex-col flex-none   text-gray-800 ms:hidden">
     <div class="fixed flex flex-col left-0 w-64 dark:bg-gray-800 h-full shadow-lg mt-0">
         <div class="flex items-center pl-6 h-20 border-b border-gray-300">
             <img src="{{ Auth::user()->profile_photo_url }}" alt=""
@@ -42,7 +42,7 @@
                     <a href="{{ route('admin.categories.index') }}"
                         class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                         <span class="inline-flex justify-center items-center ml-4">
-                            {{-- <x-bi-gear /> --}}
+                            <i class="fas fa-cog"></i>
                         </span>
                         <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">Categories</span>
                     </a>
@@ -51,7 +51,7 @@
                     <a href="{{ route('admin.user.index') }}"
                         class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                         <span class="inline-flex justify-center items-center ml-4">
-                            {{-- <x-bi-gear /> --}}
+                            <i class="fas fa-cog"></i>
                         </span>
                         <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">Users</span>
                     </a>
@@ -80,16 +80,16 @@
                     <a href="{{ route('show.categories') }}"
                         class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                         <span class="w-4 inline-flex justify-center items-center ml-4">
-                            {{-- <x-fontisto-play-list /> --}}
+                            <i class="fas fa-stream"></i>
                         </span>
-                        <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">  Categories</span>
+                        <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">Categories</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('dashboard') }}"
                         class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                         <span class="w-5 inline-flex justify-center items-center ml-4">
-                            {{-- <x-sui-thread /> --}}
+                            <i class="far fa-comment"></i>
                         </span>
                         <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">My Threads</span>
                     </a>

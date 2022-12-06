@@ -26,8 +26,8 @@ Route::get('/', function () {
 })->name('welcome');
 
 // ver todas las categorias
-//Route::get('/welcome/categories', [CategoryController::class, 'index'])->name('welcome.categories');
-Route::get('/category/{$category_id}/threads', [ThreadController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
+Route::get('dashboard/categories', [CategoryController::class, 'show'])->name('show.categories');
+// Route::get('/category/{$category_id}/threads', [ThreadController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
 
 // USERS VERIFIED
 Route::middleware([
