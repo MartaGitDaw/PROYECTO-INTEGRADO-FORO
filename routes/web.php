@@ -22,12 +22,13 @@ use Illuminate\Support\Facades\Route;
 // PUBLIC
 Route::get('/', function () {
         $threads = Thread::orderBy('id', 'desc')->get();
-        return view('welcome', compact('threads'));
+        $categories = Category::all();
+        return view('welcome', compact('threads', 'categories'));
 })->name('welcome');
 
 // ver todas las categorias
-//Route::get('/welcome/categories', [CategoryController::class, 'index'])->name('welcome.categories');
-Route::get('/category/{$category_id}/threads', [ThreadController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
+Route::get('dashboard/categories', [CategoryController::class, 'show'])->name('show.categories');
+// Route::get('/category/{$category_id}/threads', [ThreadController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
 
 // USERS VERIFIED
 Route::middleware([
@@ -38,8 +39,17 @@ Route::middleware([
     Route::get('/dashboard', function () {
         $threads = Thread::orderBy('id', 'desc')->get();
         $categories = Category::orderBy('id', 'desc')->get();
-        return view('dashboard', compact('threads', $categories));
+        return view('dashboard', compact('threads', 'categories'));
     })->name('dashboard');
+});
+
+// THREADS
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->name('thread.')->prefix('thread')->group(function () {
+    Route::resource('/', ThreadController::class);
 });
 
 // ADMIN

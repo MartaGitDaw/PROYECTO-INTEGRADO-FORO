@@ -15,15 +15,25 @@
                 <!-- Navigation Links -->
                 <!-- Admin -->
                 @role('moderator')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-foro-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin*')">
                         {{ __('Admin') }}
                     </x-foro-nav-link>
                 </div>
                 @endrole
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-foro-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-foro-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard*')">
                         {{ __('Home') }}
+                    </x-foro-nav-link>
+                </div>
+                <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-foro-nav-link href="{{ route('show.categories') }}" :active="request()->routeIs('categor*')">
+                        {{ __('Categories') }}
+                    </x-foro-nav-link>
+                </div>
+                <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-foro-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('tread*')">
+                        {{ __('My Threads') }}
                     </x-foro-nav-link>
                 </div>
             </div>
