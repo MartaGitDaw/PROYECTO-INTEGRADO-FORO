@@ -83,10 +83,19 @@ class ThreadController extends Controller
     }
 
 
-    public function categoryShowThreads(Request $request){
-        $threads = Thread::where('category_id', $request->id);
-        return view('welcome.threads', compact('threads'));
-    }
+    // public function threadsCategory(Request $request){
+    //     $threads = Thread::where('category_id', $request);
+    //     return view('home.threads-category', compact('threads'));
+    // }
 
     
+    // public function threadsCategory($id){
+    //     $threads = Thread::findOrFail($id);
+    //     return view('home.threads-category', compact('threads'));
+    // }
+
+    public function threadsUser(Request $request){
+        $threads = Thread::where('user_id', $request->id);
+        return view('home.threads-category', compact('threads'));
+    }
 }

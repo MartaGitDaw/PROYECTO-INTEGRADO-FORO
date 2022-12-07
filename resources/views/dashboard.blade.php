@@ -1,22 +1,21 @@
 <x-app-layout>
-    {{-- <a href="{{route ('admin.index')}}" class="hover:underline"><small class="text-sm text-gray-500">admin</small></a>
-            >
-            <a href="#" class="hover:underline"><small class="text-sm text-gray-500">users</small></a> --}}
-    <!-- component -->
-
     @foreach ($threads as $thread)
-        <div class="container mx-auto py-4 flex justify-center md:justify-between">
+        <div class="container mx-auto py-4 flex justify-center lg:justify-between">
             <x-foro-navbar></x-foro-navbar>
             <div class="mt-5 rounded overflow-hidden border w-full lg:w-8/12 md:w-8/12 bg-white">
                 <div class="w-full flex justify-between p-3">
                     <div class="flex">
-                        <div class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden">
-                            <img src="{{ asset('storage/' . $thread->user->profile_photo_path) }}"
-                                alt="{{Str::substr($thread->user->name, 0, 1) }}">
-                        </div>
-                        <span class="pt-1 ml-2 font-bold text-sm">{{ $thread->user->name }}</span>
+                        <a href="">
+                            <div
+                                class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden">
+                                <img src="{{ asset('storage/' . $thread->user->profile_photo_path) }}"
+                                    alt="{{ Str::substr($thread->user->name, 0, 1) }}">
+                            </div>
+                            <span class="pt-1 ml-2 font-bold text-sm">{{ $thread->user->name }}</span>
+                        </a>
                     </div>
-                    <a href="#" class="px-2 hover:bg-gray-300 cursor-pointer rounded"><i
+                    <a href="{{ route('threads.category', $thread->category) }}"
+                        class="px-2 hover:bg-gray-300 cursor-pointer rounded"><i
                             class="pt-2 text-lg">{{ $thread->category->name }}</i></a>
                 </div>
                 <img class="w-full bg-cover" src="{{ asset('storage/' . $thread->image) }}">
@@ -27,18 +26,11 @@
                     </div>
                     <div class="pt-1">
                         <div class="mb-2 text-sm">
-                            <span class="font-medium mr-2 text-sky-700">{{ $thread->user->name }}</span>
+                            <a href="{{ route('threads.user', $thread->user) }}"
+                                class="font-medium mr-2 text-sky-700">{{ $thread->user->name }}</a>
                             {{ $thread->description }}
                         </div>
                     </div>
-                    {{-- <div class="text-sm mb-2 text-gray-400 cursor-pointer font-medium">View all 14 comments</div>
-                    <div class="mb-2">
-                        <div class="mb-2 text-sm">
-                            <span class="font-medium mr-2">razzle_dazzle</span> Dude! How cool! I went to New Zealand
-                            last summer and had a blast taking the tour! So much to see! Make sure you bring a good
-                            camera when you go!
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

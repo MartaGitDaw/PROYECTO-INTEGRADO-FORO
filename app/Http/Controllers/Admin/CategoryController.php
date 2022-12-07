@@ -58,8 +58,12 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+       //
+    }
+    public function showAll(Category $category)
+    {
         $categories = Category::all();
-        return view('home.categories-show', compact('categories'));
+        return view('home.categories', compact('categories'));
     }
 
     /**
@@ -104,5 +108,9 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index')->with('info', 'Category deleted');
     }
 
-   
+    public function threadsCategory(Category $category){
+
+        $threads = Thread::all();
+        return view('home.threads-category', compact('category', 'threads'));
+    }
 }

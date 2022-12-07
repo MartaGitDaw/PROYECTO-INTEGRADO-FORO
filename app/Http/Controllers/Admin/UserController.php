@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Thread;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -41,6 +42,17 @@ class UserController extends Controller
         }
 
         return back()->with('info', 'Rol not exists.');
+    }
+
+    public function threadsUser(User $user){
+        $threads = Thread::all();
+        return view('home.threads-user', compact('user', 'threads'));
+    }
+
+    public function viewUsers(){
+        $users = User::whereNotIn('name', ['admin'])->get();
+        $roles = Role::whereNotIn('name', ['admin'])->get();
+        return view('home.users', compact('users', 'roles'));
     }
 
 }

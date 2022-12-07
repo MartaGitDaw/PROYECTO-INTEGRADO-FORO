@@ -3,10 +3,6 @@
         <x-foro-navbar></x-foro-navbar>
         <div class="mt-5 rounded overflow-hidden w-full lg:w-8/12 md:w-8/12 bg-white mx-3 md:mx-0 lg:mx-0 ">
             <div class="py-8 shrink-0 ">
-                <a href="{{ route('admin.index') }}" class="hover:underline"><small
-                        class="text-sm text-gray-500">admin</small></a>
-                >
-                <a href="#" class="hover:underline"><small class="text-sm text-gray-500">categories</small></a>
                 <div class="flex justify-between">
                     <h2 class="text-2xl font-semibold leading-tight">Categories</h2>
                     <div>

@@ -14,7 +14,7 @@
                         </div>
                         <span class="pt-1 ml-2 font-bold text-sm">{{ $thread->user->name }}</span>
                     </div>
-                    {{-- <a href="{{route('show.threads', $thread->category_id)}}" class="px-2 hover:bg-gray-300 cursor-pointer rounded"> --}}
+                    {{-- <a href="{{route('show.threads', $thread->category)}}" class="px-2 hover:bg-gray-300 cursor-pointer rounded"> --}}
                     <a href="#" class="px-2 hover:bg-gray-300 cursor-pointer rounded">
                         <i class="pt-2 text-lg">{{ $thread->category->name }}</i>
                     </a>

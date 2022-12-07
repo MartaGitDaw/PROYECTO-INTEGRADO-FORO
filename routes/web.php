@@ -21,17 +21,20 @@ use Illuminate\Support\Facades\Route;
 
 // PUBLIC
 Route::get('/', function () {
-        $threads = Thread::orderBy('id', 'desc')->get();
-        return view('welcome', compact('threads'));
+    $threads = Thread::orderBy('id', 'desc')->get();
+    return view('welcome', compact('threads'));
 })->name('welcome');
 
 // ver todas las categorias
-Route::get('dashboard/categories', [CategoryController::class, 'show'])->name('show.categories');
+Route::get('/categories', function (Category $category) {
+    $categories = Category::orderBy('id', 'desc')->get();
+    return view('welcome.categories-show', compact('categories'));
+})->name('show.threads');
 
 // ver hilos filtrados por categoria
-Route::get('dashboard/{category}/threads', function ($id) {
-        $threads = Thread::where('category_id', 'id')->get();
-        return view('home.threads-show', compact('threads'));
+Route::get('/threads/{category}', function (Category $category) {
+    $threads = Thread::orderBy('id', 'desc')->get();
+    return view('welcome.threads-category', compact('threads', 'category'));
 })->name('show.threads');
 
 // USERS VERIFIED
@@ -42,9 +45,16 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         $threads = Thread::orderBy('id', 'desc')->get();
-        $categories = Category::orderBy('id', 'desc')->get();
-        return view('dashboard', compact('threads', 'categories'));
+        return view('dashboard', compact('threads'));
     })->name('dashboard');
+    // ver todas las categorias
+    Route::get('/dashboard/categories', [CategoryController::class, 'showAll'])->name('categories');
+    // ver hilos filtrados por categoria
+    Route::get('/dashboard/threads/category/{category}', [CategoryController::class, 'threadsCategory'])->name('threads.category');
+
+    // ver hilos filtrados por usuario
+    Route::get('/dashboard/threads/user/{user}', [UserController::class, 'threadsUser'])->name('threads.user');
+    Route::get('/dashboard/users', [UserController::class, 'viewUsers'])->name('users');
 });
 
 // ADMIN
@@ -80,5 +90,4 @@ Route::middleware([
     // Users
     Route::resource('/user', UserController::class);
     Route::post('/user/{user}', [UserController::class, 'assignRole'])->name('user.roles.assign');
-
 });

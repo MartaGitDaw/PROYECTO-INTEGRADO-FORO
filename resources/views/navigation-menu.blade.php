@@ -27,13 +27,18 @@
                         </x-foro-nav-link>
                     </div>
                     <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-foro-nav-link href="{{ route('show.categories') }}" :active="request()->routeIs('categor*')">
+                        <x-foro-nav-link href="#" :active="request()->routeIs('categor*')">
                             {{ __('Categories') }}
                         </x-foro-nav-link>
                     </div>
                     <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-foro-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('tread*')">
+                        <x-foro-nav-link href="#" :active="request()->routeIs('tread*')">
                             {{ __('My Threads') }}
+                        </x-foro-nav-link>
+                    </div>
+                    <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-foro-nav-link href="#" :active="request()->routeIs('user*')">
+                            {{ __('Users') }}
                         </x-foro-nav-link>
                     </div>
                 </div>
@@ -166,6 +171,15 @@
                 </div>
                 <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Home') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="#" :active="request()->routeIs('categor*')">
+                    {{ __('Categories') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="#" :active="request()->routeIs('thread*')">
+                    {{ __('My Treads') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="#" :active="request()->routeIs('user*')">
+                    {{ __('Users') }}
                 </x-jet-responsive-nav-link>
             </div>
     
