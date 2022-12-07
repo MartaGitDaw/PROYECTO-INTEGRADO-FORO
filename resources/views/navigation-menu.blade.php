@@ -8,10 +8,10 @@
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('dashboard') }}">
-                            <x-jet-application-mark class="block h-9 w-auto" />
+
+                            <img src="{{ asset('storage/logo/logo.png') }}" class="block h-9 w-auto bg-blue-500 rounded-full">
                         </a>
                     </div>
-    
                     <!-- Navigation Links -->
                     <!-- Admin -->
                     @role('moderator')

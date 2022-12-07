@@ -27,8 +27,8 @@
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('welcome') }}">
-                            {{-- <img src="{{ asset('storage/logo/logo.png') }}" class="block h-9 w-auto"> --}}
-                            <x-jet-application-mark class="block h-9 w-auto" />
+                            <img src="{{ asset('storage/logo/logo.png') }}" class="block h-9 w-auto bg-blue-500 rounded-full">
+                            
                         </a>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             {{-- <x-foro-nav-link href="#" :active="request()->routeIs('admin*')"> --}}
@@ -60,6 +60,7 @@
     <div class="mt-12 ">
         {{ $slot }}
     </div>
+    
 </body>
 
 </html>

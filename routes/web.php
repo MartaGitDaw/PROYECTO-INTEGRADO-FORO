@@ -27,7 +27,12 @@ Route::get('/', function () {
 
 // ver todas las categorias
 Route::get('dashboard/categories', [CategoryController::class, 'show'])->name('show.categories');
-// Route::get('/category/{$category_id}/threads', [ThreadController::class, 'categoryShowThreads'])->name('welcome.category.show.threads');
+
+// ver hilos filtrados por categoria
+Route::get('dashboard/{category}/threads', function ($id) {
+        $threads = Thread::where('category_id', 'id')->get();
+        return view('home.threads-show', compact('threads'));
+})->name('show.threads');
 
 // USERS VERIFIED
 Route::middleware([
@@ -38,7 +43,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         $threads = Thread::orderBy('id', 'desc')->get();
         $categories = Category::orderBy('id', 'desc')->get();
-        return view('dashboard', compact('threads', $categories));
+        return view('dashboard', compact('threads', 'categories'));
     })->name('dashboard');
 });
 
