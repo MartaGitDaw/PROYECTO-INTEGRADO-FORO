@@ -2,8 +2,13 @@
     <div class="container mx-auto px-4 py-8 sm:px-8 flex shrink justify-center scroll-mt-5 min-h-screen">
         <div class="mt-5 rounded overflow-hidden w-full  bg-white mx-3 ">
             <div class="py-8">
-                <a href="{{ route('admin.index') }}" class="hover:underline"><small
-                        class="text-sm text-gray-500">admin</small></a>
+                @role('admin')
+                    <a href="{{ route('admin.index') }}" class="hover:underline"><small
+                            class="text-sm text-gray-500">admin</small></a>
+                @else
+                    <a href="#" class="hover:underline"><small
+                        class="text-sm text-gray-500">moderator</small></a>
+                @endrole
                 >
                 <a href="#" class="hover:underline"><small class="text-sm text-gray-500">users</small></a>
                 <div class="flex justify-between">

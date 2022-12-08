@@ -5,9 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto px-4 py-4 sm:px-8 flex shrink-0 justify-center md:justify-between">
-        <x-foro-navbar></x-foro-navbar>
-        <div class="mt-5 overflow-hidden w-full lg:w-8/12 mx-3 md:mx-0 lg:mx-0">
+    <div class="container mx-auto px-4 py-4 sm:px-8 flex shrink-0 justify-center min-h-screen">
+        <div class="mt-5 overflow-hidden w-full mx-3">
 
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                 @if (Laravel\Fortify\Features::canUpdateProfileInformation())

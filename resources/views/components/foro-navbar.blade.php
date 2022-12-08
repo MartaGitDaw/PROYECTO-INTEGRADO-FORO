@@ -20,10 +20,12 @@
                         </div>
                     @else
                         @role('moderator')
-                        <div class="badge">
-                            <span
-                                class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-blue-800 bg-blue-100 rounded-full">MODERATOR</span>
-                        </div>
+                            <div class="badge">
+                                <a href="{{ route('admin.index') }}">
+                                    <span
+                                    class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-blue-800 bg-blue-100 rounded-full">MODERATOR</span>
+                                </a>
+                            </div>
                         @endrole
                     @endrole
                 @endauth
@@ -38,15 +40,27 @@
                         <div class="flex font-semibold text-sm dark:text-gray-300 my-4 font-sans uppercase">Admin</div>
                     </div>
                 </li>
-                <li>
-                    <a href="{{ route('admin.categories.index') }}"
-                        class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
-                        <span class="inline-flex justify-center items-center ml-4">
-                            <i class="fas fa-cog"></i>
-                        </span>
-                        <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">Categories</span>
-                    </a>
-                </li>
+                @else
+                    @role('moderator')
+                        <li class="px-5">
+                            <div class="flex flex-row items-center h-8">
+                                <div class="flex font-semibold text-sm dark:text-gray-300 my-4 font-sans uppercase">Moderator</div>
+                            </div>
+                        </li>
+                    @endrole
+                @endrole
+                @role('admin')
+                    <li>
+                        <a href="{{ route('admin.categories.index') }}"
+                            class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
+                            <span class="inline-flex justify-center items-center ml-4">
+                                <i class="fas fa-cog"></i>
+                            </span>
+                            <span class="ml-2 font-semibold text-sm tracking-wide truncate font-sans">Categories</span>
+                        </a>
+                    </li>
+                @endrole
+                @role('moderator')
                 <li>
                     <a href="{{ route('admin.user.index') }}"
                         class="relative flex flex-row items-center h-8 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
