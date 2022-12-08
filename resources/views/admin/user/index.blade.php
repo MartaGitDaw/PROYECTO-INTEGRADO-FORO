@@ -1,9 +1,11 @@
 <x-admin-layout>
-    <div class="container mx-auto mt-5 flex shrink-0 justify-center md:justify-between">
-        <x-foro-navbar></x-foro-navbar>
-        <div class="mt-5 rounded overflow-hidden w-full lg:w-8/12 md:w-8/12 bg-white mx-3 md:mx-0 lg:mx-0">
+    <div class="container mx-auto px-4 py-8 sm:px-8 flex shrink justify-center scroll-mt-5 min-h-screen">
+        <div class="mt-5 rounded overflow-hidden w-full  bg-white mx-3 ">
             <div class="py-8">
-                
+                <a href="{{ route('admin.index') }}" class="hover:underline"><small
+                        class="text-sm text-gray-500">admin</small></a>
+                >
+                <a href="#" class="hover:underline"><small class="text-sm text-gray-500">users</small></a>
                 <div class="flex justify-between">
                     <h2 class="text-2xl font-semibold leading-tight">Users</h2>
                 </div>

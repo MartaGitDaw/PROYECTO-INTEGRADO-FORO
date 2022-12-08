@@ -1,8 +1,7 @@
 <x-admin-layout>
-    <div class="container mx-auto py-4 flex justify-center md:justify-between">
-        <x-foro-navbar></x-foro-navbar>
+    <div class="container mx-auto px-4 py-8 sm:px-8 flex shrink justify-center scroll-mt-5 min-h-screen">
         <!-- component -->
-        <div class="flex items-center min-h-screen  text-gray-800">
+        <div class="flex items-center text-gray-800">
             <div class="p-4 w-full">
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-12 sm:col-span-6 md:col-span-3">

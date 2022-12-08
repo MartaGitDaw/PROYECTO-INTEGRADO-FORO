@@ -1,5 +1,6 @@
 {{-- <nav x-data="{ open: false }" class="bg-white border-b border-gray-100"> --}}
-    <nav x-data="{ open: false }" class="fixed w-full top-0 border-b text-gray-700 bg-white dark:text-gray-200 dark:bg-gray-800 ">
+    {{-- <nav x-data="{ open: false }" class="stiky w-full top-0 border-b text-gray-700 bg-white dark:text-gray-200 dark:bg-gray-800 "> --}}
+    <nav x-data="{ open: false }" class="fixed w-full top-0 border-b text-gray-700 bg-white dark:text-gray-200 dark:bg-gray-800 lg:hidden">
 
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

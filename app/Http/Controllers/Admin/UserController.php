@@ -52,7 +52,8 @@ class UserController extends Controller
     public function viewUsers(){
         $users = User::whereNotIn('name', ['admin'])->get();
         $roles = Role::whereNotIn('name', ['admin'])->get();
-        return view('home.users', compact('users', 'roles'));
+        $threads = Thread::all();
+        return view('home.users', compact('users', 'roles', 'threads'));
     }
 
 }

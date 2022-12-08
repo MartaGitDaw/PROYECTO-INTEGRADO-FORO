@@ -1,5 +1,5 @@
 
-<footer class="relative bg-gray-300 dark:bg-gray-800 pt-8 pb-6">
+<footer class="stiky bottom-0 bg-gray-300 dark:bg-gray-800 pt-8 pb-6">
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">

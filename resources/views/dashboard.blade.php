@@ -1,8 +1,7 @@
 <x-app-layout>
     @foreach ($threads as $thread)
-        <div class="container mx-auto py-4 flex justify-center lg:justify-between">
-            <x-foro-navbar></x-foro-navbar>
-            <div class="mt-5 rounded overflow-hidden border w-full lg:w-8/12 md:w-8/12 bg-white">
+        <div class="container mx-auto mt-12 lg:mt-8 px-4 p-8 sm:px-8 flex shrink justify-center min-h-screen">
+            <div class="p-8 rounded overflow-hidden border w-full bg-white">
                 <div class="w-full flex justify-between p-3">
                     <div class="flex">
                         <a href="">
@@ -35,5 +34,4 @@
             </div>
         </div>
     @endforeach
-    <x-foro-footer></x-foro-footer>
 </x-app-layout>

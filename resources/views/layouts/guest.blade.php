@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>FORO::Proyecto Integrado</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -28,7 +28,6 @@
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('welcome') }}">
                             <img src="{{ asset('storage/logo/logo.png') }}" class="block h-9 w-auto bg-blue-500 rounded-full">
-                            
                         </a>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             {{-- <x-foro-nav-link href="#" :active="request()->routeIs('admin*')"> --}}
@@ -57,7 +56,7 @@
             </div>
         </div>
     </nav>
-    <div class="mt-12 ">
+    <div class="mt-12">
         {{ $slot }}
     </div>
     

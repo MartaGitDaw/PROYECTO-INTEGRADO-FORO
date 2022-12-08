@@ -1,9 +1,4 @@
 <x-guest-layout>
-    {{-- <a href="{{route ('admin.index')}}" class="hover:underline"><small class="text-sm text-gray-500">admin</small></a>
-            >
-            <a href="#" class="hover:underline"><small class="text-sm text-gray-500">users</small></a> --}}
-    <!-- component -->
-
     @foreach ($threads as $thread)
         <div class="container mx-auto px-4 py-8 sm:px-8 flex shrink justify-center">
             <div class="rounded overflow-hidden border w-full lg:w-8/12 md:w-7/12 bg-white mx-3 md:mx-0 lg:mx-0">
