@@ -11,12 +11,13 @@ use Spatie\Permission\Models\Role;
 class UserController extends Controller
 {
 
-    public function index(){
+    public function index(Request $request){
         //$users = User::all();
         // obtener todos los usuarios menos el de administrador
-        $users = User::whereNotIn('name', ['admin'])->get();
+        $users = User::whereNotIn('name', ['admin'])
+        ->name($request->name)
+        ->paginate(6);
         $roles = Role::whereNotIn('name', ['admin'])->get();
-        
         return view('admin.user.index', compact('users', 'roles'));
     }
 
@@ -49,8 +50,10 @@ class UserController extends Controller
         return view('home.threads-user', compact('user', 'threads'));
     }
 
-    public function viewUsers(){
-        $users = User::whereNotIn('name', ['admin'])->get();
+    public function viewUsers(Request $request){
+        $users = User::whereNotIn('name', ['admin'])
+            ->name($request->name)
+            ->paginate(6);
         $roles = Role::whereNotIn('name', ['admin'])->get();
         $threads = Thread::all();
         return view('home.users', compact('users', 'roles', 'threads'));
