@@ -3,13 +3,13 @@
         <nav class="text-blue-500 text-xs mt-5 lg:mt-0 mb-3">
             <a href="{{route('dashboard')}}" class="hover:underline">Dashboard</a>
             >
-            <a href="{{route('users')}}" class="hover:underline">Users</a>
-            >
-            <span>{{$user->name}}</span>
+            <span>My Threads</span>
             /
-            <span>Threads</span>
+            <span>{{$user->name}}</span>
+
         </nav>
-            <div class="px-6 my-20">
+
+            <div class="px-6 mt-20 mb-5">
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full flex justify-center ">
                         <img src="{{ asset('storage/' . $user->profile_photo_path) }}"
@@ -17,16 +17,19 @@
                     </div>
                 </div>
             </div>
+        <div class="flex place-content-end mb-2">
+            <x-dark-button-link href="{{ route('threads.create', $user) }}">New</x-dark-button-link>
+        </div>
         <x-table>
             <thead>
                 <x-th-table>Title</x-th-table>
                 <x-th-table>Category</x-th-table>
                 <x-th-table>Likes</x-th-table>
                 <x-th-table>Comments</x-th-table>
+                <x-th-table>Actions</x-th-table>
             </thead>
             <tbody>
-                @foreach ($threads as $thread)
-                    @if ($thread->user_id == $user->id)
+                @foreach ($user->threads as $thread)
                         <tr>
                             <x-td-table>
                                 <a href="{{route('threads.show', $thread)}}">
@@ -36,8 +39,20 @@
                             <x-td-table>{{ $thread->category->name }}</x-td-table>
                             <x-td-table>likes</x-td-table>
                             <x-td-table>comments</x-td-table>
+                            <x-td-table>
+                                <div class="inline-flex">
+                                    <x-blue-button-link href="">
+                                        Modificar
+                                    </x-blue-button-link>
+                                    <form action="" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-dark-button>Eliminar</x-dark-button>
+                                    </form>
+                                </div>
+                            </x-td-table>
                         </tr>
-                    @endif
+
                 @endforeach
             </tbody>
         </x-table>

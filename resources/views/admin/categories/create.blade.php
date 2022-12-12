@@ -31,10 +31,10 @@
                             class="text-center py-3 px-6 my-2 bg-emerald-500 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300">
                             Create
                         </button>
-                        <a href="{{ route('admin.categories.index') }}" type="button"
+                        <button  type="button" onclick="history.back()"
                             class="text-center py-3 px-6 bg-gray-500 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300">
                             Back
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>

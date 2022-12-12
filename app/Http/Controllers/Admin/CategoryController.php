@@ -111,9 +111,5 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index')->with('info', 'Category deleted');
     }
 
-    public function threadsCategory(Category $category){
-
-        $threads = Thread::all();
-        return view('home.threads-category', compact('category', 'threads'));
-    }
+    
 }

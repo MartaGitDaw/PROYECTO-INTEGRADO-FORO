@@ -57,6 +57,7 @@
                         <x-td-table>
                             <p class="text-gray-900 whitespace-no-wrap">
                                 <a href="{{ route('threads.user', $user) }}">
+                                {{-- <a href=""> --}}
                                     {{$user->threads->count()}}
                                 </a>
                             </p>

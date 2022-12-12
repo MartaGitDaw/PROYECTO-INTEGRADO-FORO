@@ -12,7 +12,6 @@ class UserController extends Controller
 {
 
     public function index(Request $request){
-        //$users = User::all();
         // obtener todos los usuarios menos el de administrador
         $users = User::whereNotIn('name', ['admin'])
         ->name($request->name)
@@ -50,13 +49,10 @@ class UserController extends Controller
         return back()->with('info', 'Rol not exists.');
     }
 
-    public function threadsUser(User $user){
-        $threads = Thread::all();
-        return view('home.threads-user', compact('user', 'threads'));
-    }
-
+    // igual que index pero devuelve otra vista que
+    // ver todos los usuarios menos el administrador
     public function viewUsers(Request $request){
-        $users = User::whereNotIn('name', ['admin'])
+        $users = User::orderBy('id')
             ->name($request->name)
             ->paginate(6);
         $roles = Role::whereNotIn('name', ['admin'])->get();

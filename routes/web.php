@@ -50,9 +50,10 @@ Route::middleware([
     // ver todas las categorias
     Route::get('/dashboard/categories', [CategoryController::class, 'showAll'])->name('categories');
     // ver hilos filtrados por categoria
-    Route::get('/dashboard/threads/category/{category}', [CategoryController::class, 'threadsCategory'])->name('threads.category');
+    Route::get('/dashboard/threads/category/{category}', [ThreadController::class, 'threadsCategory'])->name('threads.category');
     // ver hilos filtrados por usuario
-    Route::get('/dashboard/threads/user/{user}', [UserController::class, 'threadsUser'])->name('threads.user');
+    Route::get('/dashboard/threads/user/{user}', [ThreadController::class, 'threadsUser'])->name('threads.user');
+    Route::get('/dashboard/threads/myThreads/{user}', [ThreadController::class, 'myThreads'])->name('threads.mythreads');
     // tabla usuarios
     Route::get('/dashboard/users', [UserController::class, 'viewUsers'])->name('users');
     Route::get('/dashboard/users/{user}', [UserController::class, 'show'])->name('users.show');
