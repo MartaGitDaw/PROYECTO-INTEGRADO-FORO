@@ -14,9 +14,11 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'desc')
+        ->name($request->name)
+        ->paginate(6);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -63,7 +65,8 @@ class CategoryController extends Controller
     public function showAll(Category $category)
     {
         $categories = Category::all();
-        return view('home.categories', compact('categories'));
+        $threads = Thread::all();
+        return view('home.categories', compact('categories', 'threads'));
     }
 
     /**

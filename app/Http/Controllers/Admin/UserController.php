@@ -21,6 +21,11 @@ class UserController extends Controller
         return view('admin.user.index', compact('users', 'roles'));
     }
 
+    public function show(User $user){
+        $threads = Thread::all();
+        return view('home.users.show', compact('user', 'threads'));
+    }
+
     public function destroy(User $user){
         $user->delete();
         return back()->with('info', 'User deleted');
@@ -33,13 +38,13 @@ class UserController extends Controller
             // return back();
         }
         $user->assignRole('moderator');
-        return to_route('admin.user.index')->with('info', 'Rol assign.');
+        return back()->with('info', 'Rol assign.');
     }
 
     public function removeRole(User $user, Role $role){
         if($user->hasRole($role)){
             $user->removeRole($role);
-            return to_route('admin.user.index')->with('info', 'Rol removed.');
+            return back()->with('info', 'Rol removed.');
         }
 
         return back()->with('info', 'Rol not exists.');

@@ -32,7 +32,7 @@
                         Threads
                     </x-th-table>
                     <x-th-table>
-                        likes
+                        Folowers
                     </x-th-table>
                 </tr>
             </thead>
@@ -47,9 +47,9 @@
                                         class="rounded-full h-10 w-10 flex items-center justify-center mr-3 border-2 border-blue-500">
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
+                                    <a href="{{route ('users.show', $user)}}" class="text-gray-900 whitespace-no-wrap">
                                         {{ $user->name }}
-                                    </p>
+                                    </a>
                                     <span class="hidden md:flex text-xs text-blue-600">{{ $user->email }}</span>
                                 </div>
                             </div>
@@ -57,21 +57,13 @@
                         <x-td-table>
                             <p class="text-gray-900 whitespace-no-wrap">
                                 <a href="{{ route('threads.user', $user) }}">
-                                    @php
-                                        $cont = 0;
-                                        foreach ($threads as $thread) {
-                                            if ($user->id == $thread->user_id) {
-                                                $cont++;
-                                            }
-                                        }
-                                        echo $cont;
-                                    @endphp
+                                    {{$user->threads->count()}}
                                 </a>
                             </p>
                         </x-td-table>
                         <x-td-table>
                             <p class="text-gray-900 whitespace-no-wrap">
-                                likes
+                                Folowers
                             </p>
                         </x-td-table>
                     </tr>

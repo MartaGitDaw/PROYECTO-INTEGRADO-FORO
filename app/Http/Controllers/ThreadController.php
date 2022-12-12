@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Thread;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ThreadController extends Controller
@@ -43,9 +44,10 @@ class ThreadController extends Controller
      * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function show(Thread $thread)
+    public function show(Thread $thread )
     {
-        //
+        
+        return view('home.threads.show', compact('thread'));
     }
 
     /**
@@ -82,20 +84,8 @@ class ThreadController extends Controller
         //
     }
 
-
-    // public function threadsCategory(Request $request){
-    //     $threads = Thread::where('category_id', $request);
-    //     return view('home.threads-category', compact('threads'));
-    // }
-
-    
-    // public function threadsCategory($id){
-    //     $threads = Thread::findOrFail($id);
-    //     return view('home.threads-category', compact('threads'));
-    // }
-
     public function threadsUser(Request $request){
-        $threads = Thread::where('user_id', $request->id);
+        $threads = Thread::where('user_id', $request->id)->orderBy('id', 'desc');
         return view('home.threads-category', compact('threads'));
     }
 }

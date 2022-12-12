@@ -29,4 +29,12 @@ class Category extends Model
     public function threads(): HasMany{
         return $this->hasMany(Thread::class);
     }
+
+    // Scope
+    public function scopeName($query, $value){
+        if(!isset($value)){
+            return $query->where('name', 'like', '%');
+        }
+            return $query->where('name', 'like', '%'.$value.'%' );
+    }
 }

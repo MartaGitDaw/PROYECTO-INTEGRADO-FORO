@@ -1,38 +1,47 @@
 <x-app-layout>
-    @foreach ($threads as $thread)
-        @if ($thread->user_id == $user->id)
-            <div class="container mx-auto mt-12 lg:mt-8 px-4 p-8 sm:px-8 flex shrink justify-center min-h-screen">
-                <div class="p-8 rounded overflow-hidden border w-full bg-white">
-                    <div class="w-full flex justify-between p-3">
-                        <div class="flex">
-                            <div
-                                class="rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden">
-                                <img src="{{ asset('storage/' . $thread->user->profile_photo_path) }}"
-                                    alt=" {{ Str::substr($thread->user->name, 0, 1) }}">
-                            </div>
-                            <span class="pt-1 ml-2 font-bold text-sm">{{ $thread->user->name }}</span>
-                        </div>
-                        {{-- <a href="{{route('show.threads', $thread->category_id)}}" class="px-2 hover:bg-gray-300 cursor-pointer rounded"> --}}
-                        <a href="{{ route('threads.category', $thread->category) }}"
-                            class="px-2 hover:bg-gray-300 cursor-pointer rounded">
-                            <i class="pt-2 text-lg">{{ $thread->category->name }}</i>
-                        </a>
-                    </div>
-                    <img class="w-full bg-cover" src="{{ asset('storage/' . $thread->image) }}">
-                    <div class="px-3 pb-2">
-                        <div class="pt-2">
-                            <i class="cursor-pointer">{{ $thread->title }}</i>
-                            {{-- <span class="text-sm text-gray-400 font-medium">12 likes</span> --}}
-                        </div>
-                        <div class="pt-1">
-                            <div class="mb-2 text-sm">
-                                <span class="font-medium mr-2 text-sky-700">{{ $thread->user->name }}</span>
-                                {{ $thread->description }}
-                            </div>
-                        </div>
+    <x-container>
+        <nav class="text-blue-500 text-xs mt-5 lg:mt-0 mb-3">
+            <a href="{{route('dashboard')}}" class="hover:underline">Dashboard</a>
+            >
+            <a href="{{route('users')}}" class="hover:underline">Users</a>
+            >
+            <span>{{$user->name}}</span>
+            /
+            <span>Threads</span>
+        </nav>
+
+            <div class="px-6 mt-20 mb-5">
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full flex justify-center ">
+                        <img src="{{ asset('storage/' . $user->profile_photo_path) }}"
+                            class="shadow-xl rounded-full align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-[150px] min-w-[150px] min-h-[150px] bg-amber-400" />
                     </div>
                 </div>
             </div>
-        @endif
-    @endforeach
+
+        <x-table>
+            <thead>
+                <x-th-table>Title</x-th-table>
+                <x-th-table>Category</x-th-table>
+                <x-th-table>Likes</x-th-table>
+                <x-th-table>Comments</x-th-table>
+            </thead>
+            <tbody>
+                @foreach ($threads as $thread)
+                    @if ($thread->user_id == $user->id)
+                        <tr>
+                            <x-td-table>
+                                <a href="{{route('threads.show', $thread)}}">
+                                    {{ $thread->title }}
+                                </a>
+                            </x-td-table>
+                            <x-td-table>{{ $thread->category->name }}</x-td-table>
+                            <x-td-table>likes</x-td-table>
+                            <x-td-table>comments</x-td-table>
+                        </tr>
+                    @endif
+                @endforeach
+            </tbody>
+        </x-table>
+    </x-container>
 </x-app-layout>

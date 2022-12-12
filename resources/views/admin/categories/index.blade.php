@@ -1,64 +1,65 @@
 <x-admin-layout>
-    <div class="container mx-auto px-4 py-8 sm:px-8 flex shrink justify-center scroll-mt-5 min-h-screen">
-        <div class="mt-5 rounded overflow-hidden w-full bg-white mx-3">
-
-            <div class="py-8 shrink-0 ">
-                <a href="{{ route('admin.index') }}" class="hover:underline"><small
-                        class="text-sm text-gray-500">admin</small></a>
-                >
-                <a href="#" class="hover:underline"><small class="text-sm text-gray-500">categories</small></a>
-                <div class="flex justify-between">
-                    <h2 class="text-2xl font-semibold leading-tight">Categories</h2>
-                    <div>
-                        <x-dark-button-link href="{{ route('admin.categories.create') }}">New</x-dark-button-link>
+    <x-container>
+        <nav class="text-blue-500 text-xs mt-5 lg:mt-0">
+            <a href="{{ route('admin.index') }}" class="hover:underline">admin</a>
+            >
+            <a href="{{ route('admin.categories.index') }}" class="hover:underline">categories</a>
+        </nav>
+        <div class="flex mr-3 rounded-md mt-3 lg:mb-4 justify-between">
+            <form name="buscar" action="{{ route('admin.categories.index') }}" method="GET" class="flex w-full">
+                <input name="name" type="search"
+                    class="p-2 rounded border-2 border-slate-200 focus:border-blue-500 focus:outline-none"
+                    placeholder="search...">
+                <button type="submit">
+                    <div class="flex bg-slate-200 items-center p-2 rounded border-2 hover:bg-slate-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd" />
+                        </svg>
                     </div>
-                </div>
-                <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-
-                    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                        <table class="min-w-full leading-normal">
-                            <thead>
-                                <tr>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Name
-                                    </th>
-                                    <th
-                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        Actions
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($categories as $category)
-                                    <tr>
-                                        <td class="px-3 py-2 border-b border-gray-200 bg-white text-sm">
-                                            <div class="flex items-center">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    {{ $category->name }}
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td class="px-3 py-2 border-b border-gray-200 bg-white text-sm">
-                                            <div class="inline-flex">
-                                                <x-blue-button-link
-                                                    href="{{ route('admin.categories.edit', $category->id) }}">Modificar
-                                                </x-blue-button-link>
-                                                <form action="{{ route('admin.categories.destroy', $category->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <x-dark-button>Eliminar</x-dark-button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                </button>
+            </form>
+            <div>
+                <x-dark-button-link href="{{ route('admin.categories.create') }}">New</x-dark-button-link>
             </div>
         </div>
-    </div>
+        <x-table>
+            <thead>
+                <tr>
+                    <x-th-table>Name</x-th-table>
+                    <x-th-table>Actions</x-th-table>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($categories as $category)
+                    <tr>
+                        <x-td-table>
+                            <div class="flex items-center">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    {{ $category->name }}
+                                </p>
+                            </div>
+                        </x-td-table>
+                        <x-td-table>
+                            <div class="inline-flex">
+                                <x-blue-button-link href="{{ route('admin.categories.edit', $category->id) }}">
+                                    Modificar
+                                </x-blue-button-link>
+                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-dark-button>Eliminar</x-dark-button>
+                                </form>
+                            </div>
+                        </x-td-table>
+                    </tr>
+                @endforeach
+            </tbody>
+        </x-table>
+        <div class="mt-4 mb-4">
+            {{ $categories->links() }}
+        </div>
+    </x-container>
 </x-admin-layout>
