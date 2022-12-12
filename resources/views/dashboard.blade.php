@@ -68,14 +68,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="text-2xl ">{{$thread->category->name}}</span>
-                            @foreach ($thread->user->roles as $role)
-                                @if ($role->name == 'moderator')
-                                    <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
-                                        MODERATOR
-                                    </div>
-                                @endif
-                            @endforeach
+                            <div>
+                                <span class="text-2xl ">{{ $thread->category->name }}</span>
+                                @foreach ($thread->user->roles as $role)
+                                    @if ($role->name == 'moderator')
+                                        <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
+                                            MODERATOR
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="m-3">

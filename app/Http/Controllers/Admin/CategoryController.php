@@ -60,7 +60,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-       //
+
     }
     public function showAll(Category $category)
     {

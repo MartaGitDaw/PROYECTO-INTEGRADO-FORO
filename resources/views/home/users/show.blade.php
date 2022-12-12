@@ -21,15 +21,7 @@
                             <div class="p-3 text-center">
                                 <span
                                     class="text-xl font-bold block uppercase tracking-wide text-slate-700">
-                                    @php
-                                        $cont = 0;
-                                        foreach ($threads as $thread) {
-                                            if ($user->id == $thread->user_id) {
-                                                $cont++;
-                                            }
-                                        }
-                                        echo $cont;
-                                    @endphp
+                                   {{$user->threads->count()}}
                                 </span>
                                 <a href="{{ route('threads.user', $user) }}" class="text-sm text-slate-400">Threads</a>
                             </div>
