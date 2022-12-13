@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Thread;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->bootEloquentMorphsRelations();
+    }
+
+    public function bootEloquentMorphsRelations()
+    {
+        Relation::morphMap([
+            // 'thread'=>'App\Models\Thread',
+            // 'user'=>'App\Models\User',
+
+            Thread::TABLE => Thread::class,
+            User::TABLE => User::class,
+
+        ]);
     }
 }

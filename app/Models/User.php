@@ -25,6 +25,11 @@ class User extends Authenticatable
     // Spatie
     use HasRoles;
 
+
+    const TABLE = 'users';
+
+    protected $table = self::TABLE;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -66,6 +71,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function id(): int
+    {
+        return $this->id;
+    }
 
         // Una categoría tiene varios hilos
         public function threads(): HasMany{

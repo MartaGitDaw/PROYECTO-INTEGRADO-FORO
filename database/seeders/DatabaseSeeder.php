@@ -35,5 +35,8 @@ class DatabaseSeeder extends Seeder
         // Crear Hilos
         \App\Models\Thread::factory(30)->create();
 
+        // Likes
+        // \App\Models\Like::factory(100)->create();
+
     }
 }
