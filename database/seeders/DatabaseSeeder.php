@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Thread::factory(30)->create();
 
         // Likes
-        // \App\Models\Like::factory(100)->create();
+        \App\Models\Like::factory(100)->create();
 
     }
 }
