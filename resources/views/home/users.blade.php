@@ -31,9 +31,6 @@
                     <x-th-table>
                         Threads
                     </x-th-table>
-                    <x-th-table>
-                        Folowers
-                    </x-th-table>
                 </tr>
             </thead>
             <tbody>
@@ -60,11 +57,6 @@
                                 {{-- <a href=""> --}}
                                     {{$user->threads->count()}}
                                 </a>
-                            </p>
-                        </x-td-table>
-                        <x-td-table>
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                Folowers
                             </p>
                         </x-td-table>
                     </tr>

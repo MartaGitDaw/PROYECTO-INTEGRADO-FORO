@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Like;
 use App\Models\Thread;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -163,7 +164,7 @@ class ThreadController extends Controller
     {
         $threads = Thread::where('user_id', $user->id)
         ->paginate(5);
-        return view('home.threads-user', compact('user', 'threads'));
+    return view('home.threads-user', compact('user', 'threads'));
     }
 
     public function myThreads(User $user)

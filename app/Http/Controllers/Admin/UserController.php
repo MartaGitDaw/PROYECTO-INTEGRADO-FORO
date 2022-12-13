@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Like;
 use App\Models\Thread;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,7 +58,8 @@ class UserController extends Controller
             ->paginate(6);
         $roles = Role::whereNotIn('name', ['admin'])->get();
         $threads = Thread::all();
-        return view('home.users', compact('users', 'roles', 'threads'));
+        $likes = Like::all();
+        return view('home.users', compact('users', 'roles', 'threads', 'likes'));
     }
 
 }

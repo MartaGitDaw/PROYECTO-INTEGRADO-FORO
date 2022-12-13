@@ -32,7 +32,7 @@ Route::get('/categories', function (Category $category) {
 })->name('show.categories');
 
 // ver hilos filtrados por categoria
-Route::get('/threads/{category}', function (Category $category) {
+Route::get('/categories/{category}/threads', function (Category $category) {
     $threads = Thread::orderBy('id', 'desc')->get();
     return view('welcome.threads-category', compact('threads', 'category'));
 })->name('show.threads');

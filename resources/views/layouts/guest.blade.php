@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
 
-    
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -27,15 +27,16 @@
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('welcome') }}">
-                            <img src="{{ asset('storage/logo/logo.png') }}" class="block h-9 w-auto bg-blue-500 rounded-full">
+                            <img src="{{ asset('storage/logo/logo.png') }}"
+                                class="block h-9 w-auto bg-blue-500 rounded-full">
                         </a>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            {{-- <x-foro-nav-link href="#" :active="request()->routeIs('admin*')"> --}}
-                            <label class="text-sm font-medium leading-5 text-gray-900 dark:text-blue-500">Foro</label>
+                        <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <a href="{{route('welcome')}}" class="ml-3 text-sm font-medium leading-5 text-gray-900 dark:text-blue-500 hover:text-gray-500">Threads</a>
                         </div>
+                        <a href="{{route('show.categories')}}" class="ml-3 text-sm font-medium leading-5 text-gray-900 dark:text-blue-500 hover:text-gray-500">Categories</a>
                     </div>
                 </div>
-                <div class="py-4 px-2 flex flex-row-reverse text-sm mx-12">
+                <div class="shrink-0 flex items-center">
                     @if (Route::has('login'))
                         <div class="top-0 block">
                             @auth
@@ -56,10 +57,12 @@
             </div>
         </div>
     </nav>
-    <div class="mt-12">
+    <!-- Page Content -->
+    <div class="flex-1 mt-12">
         {{ $slot }}
+        <x-foro-footer></x-foro-footer>
     </div>
-    
+
 </body>
 
 </html>

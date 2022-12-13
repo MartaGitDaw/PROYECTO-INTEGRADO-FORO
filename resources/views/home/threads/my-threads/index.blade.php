@@ -37,17 +37,17 @@
                                 </a>
                             </x-td-table>
                             <x-td-table>{{ $thread->category->name }}</x-td-table>
-                            <x-td-table>likes</x-td-table>
+                            <x-td-table>{{count($thread->likes())}}</x-td-table>
                             <x-td-table>comments</x-td-table>
                             <x-td-table>
                                 <div class="inline-flex">
                                     <x-blue-button-link href="{{route('threads.edit', $thread->id)}}">
-                                        Modificar
+                                        Edit
                                     </x-blue-button-link>
                                     <form action="{{route('threads.destroy', $thread->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <x-dark-button>Eliminar</x-dark-button>
+                                        <x-dark-button>Delete</x-dark-button>
                                     </form>
 
                                 </div>
