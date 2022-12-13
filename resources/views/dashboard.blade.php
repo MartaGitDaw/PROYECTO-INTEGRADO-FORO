@@ -47,7 +47,7 @@
                     comment: false,
                 }">
 
-                <div class="h-full relative m-3">
+                <div class="h-full w-full  relative m-3">
                     <div class="py-2 px-2">
                         <div class="flex justify-between items-center py-2">
                             <div class="relative mt-1 flex">
@@ -85,9 +85,9 @@
 
                     </div>
                     @if (isset($thread->image))
-                        <div class="relative w-full h-full">
+                        <div class="relative flex justify-center mb-3">
                             <img src="{{ asset('storage/' . $thread->image) }}" alt="saman"
-                                class="rounded-lg w-full h-full object-cover">
+                                class="rounded-lg  object-cover">
                         </div>
                     @endif
                     <div>

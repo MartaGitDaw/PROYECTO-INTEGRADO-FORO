@@ -14,20 +14,21 @@
             <a href="{{ route('dashboard') }}" class="hover:underline">Dashboard</a>
             >
             <a href="{{ route('threads.mythreads', Auth::user()) }}" class="hover:underline">My Threads</a>
-            /
-            <span>Create</span>
+            >
+            <span>Edit / {{$thread->title}}</span>
         </nav>
 
-        <form action="{{ route('threads.store', Auth::user()) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('threads.update', $thread->id)}}" method="POST">
             @csrf
+            @method('PUT')
 
-            <h2 class="text-2xl font-semibold leading-tight">New Thread</h2>
-            <p class="my-4 opacity-70">Enter the data to create a new thread.</p>
+            <h2 class="text-2xl font-semibold leading-tight">Edit Thread</h2>
+            <p class="my-4 opacity-70">Enter the data to edit thread.</p>
             <hr class="my-6">
             {{-- Name --}}
             <div>
                 <label class="uppercase text-sm font-bold opacity-70">Title</label>
-                <input name="title" type="text"
+                <input name="title" type="text" value="{{$thread->title}}"
                     class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none">
                 @error('title')
                     <p class="text-sm text-red-700">*** {{ $message }}</p>
@@ -36,7 +37,7 @@
             <div>
                 <label class="uppercase text-sm font-bold opacity-70">Description</label>
                 <textarea name="description" type="text"
-                    class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"></textarea>
+                    class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none">{{$thread->description}}</textarea>
                 @error('description')
                     <p class="text-sm text-red-700">*** {{ $message }}</p>
                 @enderror
@@ -48,7 +49,11 @@
                 <div class="grid grid-cols-1 mt-5 mx-7">
                     {{-- VER Imagen previa --}}
                     <div class='flex items-center justify-center w-full mb-4'>
-                        <img id="imagenSeleccionada">
+                        <img id="imagenSeleccionada"
+                        @if(isset($thread->image))
+                        src="{{(asset('storage/'.$thread->image))}}"
+                        @endif
+                        >
                     </div>
                     <div class='flex items-center justify-center w-full'>
                         <label
@@ -78,7 +83,7 @@
                     class="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none">
                     <option value="">- Seleccionar -</option>
                     @foreach ($categories as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" @if ($thread->category_id == $item->id) selected @endif>{{ $item->name }}</option>
                     @endforeach
                 </select>
                 @error('category_id')
@@ -91,7 +96,7 @@
             <div class="flex flex-col space-y-4 mb-6">
                 <button type="submit"
                     class="text-center py-3 px-6 my-2 bg-emerald-500 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300">
-                    Create
+                    Update
                 </button>
                 <button type="button" onclick="history.back()"
                     class="text-center py-3 px-6 bg-gray-500 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300">

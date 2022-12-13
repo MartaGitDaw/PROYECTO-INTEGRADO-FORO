@@ -51,7 +51,7 @@
                     comment: false,
                 }">
 
-                <div class="h-full relative m-3">
+                <div class="h-full w-full relative m-3">
                     <div class="py-2 px-2">
                         <div class="flex justify-between items-center py-2">
                             <div class="relative mt-1 flex">
@@ -62,9 +62,9 @@
                                             class="rounded-full h-10 w-10 flex items-center justify-center mr-3 border-2 border-blue-500">
                                     </div>
                                     <div class="ml-3">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                {{ $thread->user->name }}
-                                            </p>
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $thread->user->name }}
+                                        </p>
                                         <button
                                             class="text-indigo-500 text-sm capitalize flex justify-start items-start">•
                                             follow
@@ -89,9 +89,9 @@
 
                     </div>
                     @if (isset($thread->image))
-                        <div class="relative w-full h-full">
+                        <div class="relative flex justify-center mb-3">
                             <img src="{{ asset('storage/' . $thread->image) }}" alt="saman"
-                                class="rounded-lg w-full h-full object-cover">
+                                class="rounded-lg  object-cover">
                         </div>
                     @endif
                     <div>
@@ -261,4 +261,5 @@
             </div>
         @endforeach
     </x-container>
+
 </x-app-layout>

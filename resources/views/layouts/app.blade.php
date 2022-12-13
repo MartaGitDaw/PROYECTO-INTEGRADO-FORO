@@ -16,6 +16,8 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    {{-- CDN SweetAlert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -36,6 +38,19 @@
     @stack('modals')
 
     @livewireScripts
+    {{-- SweetAlert2 --}}
+    {{-- Si existe la variable de sesion info --}}
+    @if (session('info'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '{{ session('info') }}',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
 </body>
 
 </html>

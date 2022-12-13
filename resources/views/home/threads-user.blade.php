@@ -41,5 +41,8 @@
                 @endforeach
             </tbody>
         </x-table>
+        <div class="mt-4 mb-4">
+            {{ $threads->links() }}
+        </div>
     </x-container>
 </x-app-layout>

@@ -18,7 +18,7 @@
                 </div>
             </div>
         <div class="flex place-content-end mb-2">
-            <x-dark-button-link href="{{ route('threads.create', $user) }}">New</x-dark-button-link>
+            <x-dark-button-link href="{{ route('threads.create') }}">New</x-dark-button-link>
         </div>
         <x-table>
             <thead>
@@ -29,7 +29,7 @@
                 <x-th-table>Actions</x-th-table>
             </thead>
             <tbody>
-                @foreach ($user->threads as $thread)
+                @foreach ($threads as $thread)
                         <tr>
                             <x-td-table>
                                 <a href="{{route('threads.show', $thread)}}">
@@ -41,20 +41,23 @@
                             <x-td-table>comments</x-td-table>
                             <x-td-table>
                                 <div class="inline-flex">
-                                    <x-blue-button-link href="">
+                                    <x-blue-button-link href="{{route('threads.edit', $thread->id)}}">
                                         Modificar
                                     </x-blue-button-link>
-                                    <form action="" method="POST">
+                                    <form action="{{route('threads.destroy', $thread->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <x-dark-button>Eliminar</x-dark-button>
                                     </form>
+
                                 </div>
                             </x-td-table>
                         </tr>
-
                 @endforeach
             </tbody>
         </x-table>
+        <div class="mt-4 mb-4">
+            {{ $threads->links() }}
+        </div>
     </x-container>
 </x-app-layout>
