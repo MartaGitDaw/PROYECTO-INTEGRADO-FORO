@@ -26,23 +26,4 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function countCommentsThread(Thread $thread){
-    //     $comments = Comment::all();
-    //     $cont=0;
-    //     foreach($comments as $comment){
-    //         if($thread->id == $comment->thread_id){
-    //             $cont++;
-    //         }
-    //     }
-    //     return $cont;
-    // }
-
-    public function viewComments(Thread $thread){
-        $comments = Comment::all();
-            foreach($comments as $comment){
-                if($thread->id == $comment->thread_id){
-                    
-                }
-            }
-    }
 }

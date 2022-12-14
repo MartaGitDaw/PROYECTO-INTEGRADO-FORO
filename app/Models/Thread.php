@@ -47,4 +47,12 @@ class Thread extends Model
     public function comments(): HasMany{
         return $this->hasMany(Thread::class);
     }
+
+     // Scope
+     public function scopeTitle($query, $value){
+        if(!isset($value)){
+            return $query->where('title', 'like', '%');
+        }
+            return $query->where('title', 'like', '%'.$value.'%' );
+    }
 }
