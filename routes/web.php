@@ -3,9 +3,12 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ThreadController;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Thread;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 // PUBLIC
 Route::get('/', function () {
     $threads = Thread::orderBy('id', 'desc')->get();
-    return view('welcome', compact('threads'));
+    $comments = Comment::all();
+    return view('welcome', compact('threads', 'comments'));
 })->name('welcome');
 
 // ver todas las categorias
@@ -34,7 +38,8 @@ Route::get('/categories', function (Category $category) {
 // ver hilos filtrados por categoria
 Route::get('/categories/{category}/threads', function (Category $category) {
     $threads = Thread::orderBy('id', 'desc')->get();
-    return view('welcome.threads-category', compact('threads', 'category'));
+    $comments = Comment::all();
+    return view('welcome.threads-category', compact('threads', 'category', 'comments'));
 })->name('show.threads');
 
 // USERS VERIFIED
@@ -45,7 +50,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         $threads = Thread::orderBy('id', 'desc')->get();
-        return view('dashboard', compact('threads'));
+        $comments = Comment::all();
+        return view('dashboard', compact('threads', 'comments'));
     })->name('dashboard');
     // ver todas las categorias
     Route::get('/dashboard/categories', [CategoryController::class, 'showAll'])->name('categories');
@@ -60,6 +66,30 @@ Route::middleware([
     // hilos
     Route::resource('/dashboard/threads', ThreadController::class);
 
+    // crear comentarios
+    Route::post('/dashboard/thread/comment', function (Request $request) {
+        // Validate the request...
+        // validaciones
+        $request->validate([
+            'user_id' => ['required'],
+            'thread_id' => ['required'],
+            'content'=> ['required', 'string', 'max:1000'],
+        ]);
+
+        Comment::create([
+            'user_id' => $request->user_id,
+            'thread_id' =>$request->thread_id,
+            'content'=> $request->content,
+        ]);
+
+        return back()->withInput();
+    })->name('comentar');
+
+    // borrar comentarios
+    Route::DELETE('/dashboard/thread/comment/{comment}', function (Comment $comment) {
+        $comment->delete();
+        return back()->withInput();
+    })->name('comment.destroy');
 });
 
 // ADMIN

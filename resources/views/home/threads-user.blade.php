@@ -34,8 +34,18 @@
                                 </a>
                             </x-td-table>
                             <x-td-table>{{ $thread->category->name }}</x-td-table>
-                            <x-td-table>likes</x-td-table>
-                            <x-td-table>comments</x-td-table>
+                            <x-td-table>
+                                {{ count($thread->likes()) }}
+                            </x-td-table>
+                            <x-td-table>
+                                @php $cont=0; @endphp
+                                @foreach($comments as $coment)
+                                    @if($coment->thread_id == $thread->id)
+                                        @php $cont++; @endphp
+                                    @endif
+                                @endforeach
+                                {{$cont}}
+                            </x-td-table>
                         </tr>
                     @endif
                 @endforeach

@@ -21,20 +21,20 @@
                             <div class="p-3 text-center">
                                 <span
                                     class="text-xl font-bold block uppercase tracking-wide text-slate-700">
-                                   {{$user->threads->count()}}
+                                    {{$user->threads->count()}}
                                 </span>
                                 <a href="{{ route('threads.user', $user) }}" class="text-sm text-slate-400">Threads</a>
                             </div>
-                            <div class="p-3 text-center">
+                            {{-- <div class="p-3 text-center">
                                 <span
                                     class="text-xl font-bold block uppercase tracking-wide text-slate-700">2,454</span>
                                 <span class="text-sm text-slate-400">Followers</span>
-                            </div>
+                            </div> --}}
 
-                            <div class="p-3 text-center">
+                            {{-- <div class="p-3 text-center">
                                 <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">564</span>
                                 <span class="text-sm text-slate-400">Following</span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -54,9 +54,9 @@
                             <p class="font-light leading-relaxed text-slate-600 mb-4">
                                 {{$user->bio}}
                             </p>
-                            <a href="javascript:void(0);" class="font-normal text-slate-700 hover:text-blue-400">
+                            {{-- <a href="javascript:void(0);" class="font-normal text-slate-700 hover:text-blue-400">
                                 Follow Account
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

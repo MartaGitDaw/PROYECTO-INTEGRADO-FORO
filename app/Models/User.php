@@ -77,9 +77,14 @@ class User extends Authenticatable
         return $this->id;
     }
 
-        // Una categoría tiene varios hilos
+        // Una usuario tiene varios hilos
         public function threads(): HasMany{
             return $this->hasMany(Thread::class);
+        }
+
+        // Una usuario tiene varios comentarios
+        public function comments(): HasMany{
+            return $this->hasMany(Comment::class);
         }
 
         // Scope

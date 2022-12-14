@@ -37,6 +37,9 @@ class DatabaseSeeder extends Seeder
 
         // Likes
         \App\Models\Like::factory(100)->create();
+        
+        // Comments
+        \App\Models\Comment::factory(10)->create();
 
     }
 }

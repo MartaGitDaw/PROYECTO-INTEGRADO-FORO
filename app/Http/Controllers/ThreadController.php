@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Thread;
 use App\Models\User;
@@ -86,7 +87,8 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        return view('home.threads.show', compact('thread'));
+        $comments = Comment::all();
+        return view('home.threads.show', compact('thread', 'comments'));
     }
 
     /**
@@ -111,7 +113,7 @@ class ThreadController extends Controller
     public function update(Request $request, Thread $thread)
     {
          // validaciones
-         $request->validate([
+        $request->validate([
             'title' => ['required', 'string', 'min:3', 'unique:threads,title,'.$thread->id],
             'description' => ['required', 'string', 'min:10'],
             'image' => ['nullable', 'image', 'max:1048'],
@@ -164,20 +166,23 @@ class ThreadController extends Controller
     {
         $threads = Thread::where('user_id', $user->id)
         ->paginate(5);
-    return view('home.threads-user', compact('user', 'threads'));
+        $comments = Comment::all();
+    return view('home.threads-user', compact('user', 'threads', 'comments'));
     }
 
     public function myThreads(User $user)
     {
         $threads = Thread::where('user_id', $user->id)
         ->paginate(5);
-        return view('home.threads.my-threads.index', compact('user', 'threads'));
+        $comments = Comment::all();
+        return view('home.threads.my-threads.index', compact('user', 'threads', 'comments'));
     }
 
     // hilos de una categoria
     public function threadsCategory(Category $category)
     {
         $threads = Thread::orderBy('id', 'desc');
-        return view('home.threads-category', compact('category', 'threads'));
+        $comments = Comment::all();
+        return view('home.threads-category', compact('category', 'threads', 'comments'));
     }
 }
