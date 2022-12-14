@@ -63,7 +63,7 @@
                         <div class="flex justify-between items-start p-2 py-">
                             <div class="flex space-x-2 items-center">
                                 <livewire:like-thread :thread="$thread" />
-                                <a href="#" class="ml-4 text-sm text-gray-700 dark:text-gray-500">
+                                <a href="{{route('threads.show', $thread)}}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">
                                     <i class="far fa-comment-dots"></i>
                                     <span class="text-xs font-bold text-gray-600">
                                         @php $cont=0; @endphp
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <!-- Comments -->
-                        <div class="w-full">
+                        {{-- <div class="w-full">
                             <form action="{{ route('comentar') }}" method="POST">
                                 @csrf
                                 <input type="text" name="thread_id" value="{{ $thread->id }}" hidden>
@@ -96,7 +96,7 @@
                                 @enderror
                                 <button type="submit" class="hover:text-blue-500">Comment</button>
                             </form>
-                        </div>
+                        </div> --}}
                         <div class="w-full">
                             @foreach ($comments as $comment)
                                 @if ($comment->thread_id == $thread->id)
@@ -109,14 +109,14 @@
                                             {{-- <textarea class="h-20 flex justify-between p-2 text-gray-700 w-full display-1">{{ $comment->content }}</textarea> --}}
                                         </div>
                                         <span>{{ $comment->content }}</span>
-                                        @if ($comment->user_id == Auth::user()->id)
+                                        {{-- @if ($comment->user_id == Auth::user()->id)
                                             <form action="{{ route('comment.destroy', $comment->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
                                                     class="text-white hover:bg-slate-600 self-end bg-slate-500 rounded-md  p-1 m-1">Delete</button>
                                             </form>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 @endif
                             @endforeach

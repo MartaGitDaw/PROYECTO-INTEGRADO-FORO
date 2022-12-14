@@ -59,8 +59,17 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                class="bg-gradient-to-r from-emerald-300 to-indigo-400 rounded-md p-1" title="Remove">Moderator</button>
+                                                    class="bg-gradient-to-r from-emerald-300 to-indigo-400 rounded-md p-1"
+                                                    title="Remove">Moderator</button>
                                             </form>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    @foreach ($user->roles as $role)
+                                        @if ($role->name == 'moderator')
+                                            <button type="submit"
+                                                class="bg-gradient-to-r from-emerald-300 to-indigo-400 rounded-md p-1"
+                                                title="User Moderator">Moderator</button>
                                         @endif
                                     @endforeach
                                 @endrole
@@ -71,15 +80,15 @@
                                 <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
                                     @csrf
                                     @method('POST')
-                                    <button type="submit"
-                                        class="rounded-md p-1 border bg-indigo-300" title="Make Moderator">M</button>
+                                    <button type="submit" class="rounded-md p-1 border bg-indigo-300"
+                                        title="Make Moderator">M</button>
                                 </form>
-                                <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
+                                {{-- <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
                                     @csrf
                                     @method('POST')
                                     <button type="submit"
                                         class="rounded-md p-1 border bg-red-300" title="Ban">B</button>
-                                </form>
+                                </form> --}}
                             </div>
                         </x-td-table>
                     </tr>

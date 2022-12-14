@@ -4,6 +4,7 @@
         <div class="flex items-center text-gray-800">
             <div class="p-4 w-full">
                 <div class="grid grid-cols-12 gap-4">
+                    @role('admin')
                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                         <a href="{{ route('admin.categories.index') }}">
                             <div class="flex flex-row bg-white shadow-sm rounded p-4">
@@ -18,6 +19,7 @@
                             </div>
                         </a>
                     </div>
+                    @endrole
                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                         <a href="{{ route('admin.user.index') }}">
                             <div class="flex flex-row bg-white shadow-sm rounded p-4">

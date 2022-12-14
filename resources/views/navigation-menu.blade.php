@@ -15,12 +15,20 @@
                     </div>
                     <!-- Navigation Links -->
                     <!-- Admin -->
-                    @role('moderator')
+                    @role('admin')
                     <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-foro-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin*')">
                             {{ __('Admin') }}
                         </x-foro-nav-link>
                     </div>
+                    @else
+                        @role('moderator')
+                        <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-foro-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin*')">
+                                {{ __('Moderator') }}
+                            </x-foro-nav-link>
+                        </div>
+                        @endrole
                     @endrole
                     <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-foro-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard*')">
@@ -28,19 +36,19 @@
                         </x-foro-nav-link>
                     </div>
                     <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-foro-nav-link href="#" :active="request()->routeIs('categor*')">
+                        <x-foro-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categor*')">
                             {{ __('Categories') }}
                         </x-foro-nav-link>
                     </div>
                     <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-foro-nav-link href="#" :active="request()->routeIs('tread*')">
-                            {{ __('My Threads') }}
-                        </x-foro-nav-link>
-                    </div>
-                    <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-foro-nav-link href="#" :active="request()->routeIs('user*')">
+                        <x-foro-nav-link href="{{route('users')}}" :active="request()->routeIs('user*')">
                             {{ __('Users') }}
                         </x-foro-nav-link>
+                        <div class="hidden lg:hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-foro-nav-link href="{{ route('threads.mythreads', Auth::user()) }}" :active="request()->routeIs('tread*')">
+                                {{ __('My Threads') }}
+                            </x-foro-nav-link>
+                        </div>
                     </div>
                 </div>
     
@@ -159,28 +167,34 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
                 <div class="pt-2 pb-3 space-y-1">
-                    @role('moderator')
+                    @role('admin')
                     <x-jet-responsive-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin*')">
                         {{ __('Admin') }}
                     </x-jet-responsive-nav-link>
+                    @else
+                        @role('moderator')
+                        <x-jet-responsive-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin*')">
+                            {{ __('Moderator') }}
+                        </x-jet-responsive-nav-link>
+                        @endrole
                     @endrole
                 </div>
                 <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Home') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="#" :active="request()->routeIs('categor*')">
+                <x-jet-responsive-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categor*')">
                     {{ __('Categories') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="#" :active="request()->routeIs('thread*')">
-                    {{ __('My Treads') }}
-                </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="#" :active="request()->routeIs('user*')">
+                <x-jet-responsive-nav-link href="{{route('users')}}" :active="request()->routeIs('user*')">
                     {{ __('Users') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('threads.mythreads', Auth::user()) }}" :active="request()->routeIs('thread*')">
+                    {{ __('My Treads') }}
                 </x-jet-responsive-nav-link>
             </div>
     
