@@ -11,6 +11,18 @@
         </div>
     </div>
     <x-container>
+        @if (count($category->threads) < 1)
+            <div class="mx-auto flex justify-center max-w-3xl md:mb-8 mt-4 bg-white rounded-lg items-center  md:p-0 p-8  min-h-screen"
+                x-data="{
+                    comment: false,
+                }">
+                <div class="h-full w-full  m-3">
+                    <div class="py-2 px-2">
+                        There are no threads in this category...
+                    </div>
+                </div>
+            </div>
+        @endif
         @foreach ($category->threads as $thread)
             <div class="mx-auto flex justify-center max-w-3xl md:mb-8 mt-4 bg-white rounded-lg items-center  md:p-0 p-8 shadow-2xl"
                 x-data="{
@@ -51,8 +63,7 @@
                     </div>
                     @if (isset($thread->image))
                         <div class=" flex justify-center mb-3">
-                            <img src="{{ asset('storage/' . $thread->image) }}"
-                                class="rounded-lg  object-cover">
+                            <img src="{{ asset('storage/' . $thread->image) }}" class="rounded-lg  object-cover">
                         </div>
                     @endif
                     <div>
@@ -63,7 +74,8 @@
                         <div class="flex justify-between items-start p-2 py-">
                             <div class="flex space-x-2 items-center">
                                 <livewire:like-thread :thread="$thread" />
-                                <a href="{{route('threads.show', $thread)}}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">
+                                <a href="{{ route('threads.show', $thread) }}"
+                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500">
                                     <i class="far fa-comment-dots"></i>
                                     <span class="text-xs font-bold text-gray-600">
                                         @php $cont=0; @endphp
