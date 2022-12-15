@@ -2,7 +2,7 @@
 <div class="min-h-screen hidden lg:flex flex-col flex-none   text-gray-800 ms:hidden">
     <div class="fixed flex flex-col left-0 w-64 dark:bg-gray-800 h-full shadow-lg mt-0">
         <div class="flex items-center pl-6 h-20 border-b border-gray-300">
-            <img src="{{ Auth::user()->profile_photo_url }}" alt=""
+            <img src="{{ asset('storage/'. Auth::user()->profile_photo_path) }}" alt="{{ Str::substr(Auth::user()->name, 0, 1) }}"
                 class="rounded-full h-10 w-10 flex items-center justify-center mr-3 border-2 border-blue-500">
 
             <div class="">

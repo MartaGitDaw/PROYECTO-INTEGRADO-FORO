@@ -9,7 +9,7 @@
                 <div class="mt-6 lg:mb-0 mb-6">
                     <a href="https://github.com/MartaGitDaw/PROYECTO-INTEGRADO-FORO/tree/devfix"
                         class="px-3 py-2 dark:bg-gray-800 dark:text-white bg-white text-blueGray-800  font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                        type="button">
+                        type="button" target="_blank">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -21,7 +21,7 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                    href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
+                                    href="https://www.github.com/creativetimofficial?ref=njs-profile" target="_blank">Github</a>
                             </li>
                         </ul>
                     </div>
@@ -31,7 +31,7 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+                                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
                                     License
                                 </a>
                             </li>

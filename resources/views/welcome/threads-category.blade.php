@@ -1,9 +1,22 @@
 <x-guest-layout>
-    @foreach ($category->threads as $thread)
-        <div class="mx-auto flex justify-center max-w-3xl md:mb-8 mt-4 bg-white rounded-lg items-center  md:p-0 p-8 shadow-2xl"
+    @if (count($category->threads)<1)
+        <div class="mx-auto flex justify-center max-w-3xl md:mb-8 mt-4 bg-white rounded-lg items-center  md:p-0 p-8  min-h-screen"
             x-data="{
                 comment: false,
             }">
+            <div class="h-full w-full  m-3">
+                <div class="py-2 px-2">
+                    There are no threads in this category...
+                </div>
+            </div>
+        </div>
+    @endif
+    @foreach ($category->threads as $thread)
+        <div class="mx-auto flex justify-center max-w-3xl md:mb-8 mt-4 bg-white rounded-lg items-center  md:p-0 p-8 shadow-2xl min-h-screen"
+            x-data="{
+                comment: false,
+            }">
+
             <div class="h-full w-full  m-3">
                 <div class="py-2 px-2">
                     <div class="flex justify-between items-center py-2">
@@ -91,7 +104,7 @@
                                 </div>
                                 <span>{{ $comment->content }}</span>
                             </div> @endif
-                     @endforeach
+                      @endforeach
                         </div>
                     </div>
                 </div>

@@ -51,7 +51,7 @@
                     </div>
                     @if (isset($thread->image))
                         <div class=" flex justify-center mb-3">
-                            <img src="{{ asset('storage/' . $thread->image) }}" alt="saman"
+                            <img src="{{ asset('storage/' . $thread->image) }}"
                                 class="rounded-lg  object-cover">
                         </div>
                     @endif
