@@ -44,13 +44,17 @@
                         </x-td-table>
                         <x-td-table>
                             <div class="inline-flex justify-between">
-                                <a href="{{ route('admin.categories.edit', $category->id) }}" class="hover:text-blue-500 mx-5">
-                                    Edit <i class="far fa-edit"> </i>
+                                <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                    class="text-gray-500 hover:text-blue-500 mx-5" title="Edit">
+                                    <i class="far fa-edit"> </i>
                                 </a>
                                 <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="hover:text-red-500 mx-5">Delete <i class="fas fa-trash-alt"></i></button>
+                                    <button type="submit" class="text-gray-500 hover:text-red-500 mx-5"
+                                        title="Delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </form>
                             </div>
                         </x-td-table>
