@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->unsignedInteger('likeable_id');
-            $table->string('likeable_type');
+            $table->foreignId('user_id')->constrained('users'); // usuario que ha dado like
+            $table->unsignedInteger('likeable_id'); // id de a lo que le hemos dado like
+            $table->string('likeable_type'); // tipo de cosa a la que le doy like: thread, comment...
             $table->timestamps();
         });
     }

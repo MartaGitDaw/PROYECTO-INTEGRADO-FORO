@@ -60,8 +60,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-
+        //
     }
+
     public function showAll(Category $category)
     {
         $categories = Category::all();
@@ -110,6 +111,4 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('admin.categories.index')->with('info', 'Category deleted');
     }
-
-    
 }

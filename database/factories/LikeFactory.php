@@ -26,9 +26,9 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::all()->random()->id,
-            'likeable_id' => Thread::all()->random()->id,
-            'likeable_type' => 'threads',
+            'user_id' => User::all()->random()->id, // ID usuario
+            'likeable_id' => Thread::all()->random()->id, // ID hilo
+            'likeable_type' => 'threads', //como solo tengo un tipo, para hacer los seeders se lo meto ya así
         ];
     }
 

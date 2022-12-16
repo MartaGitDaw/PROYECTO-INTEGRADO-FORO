@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Thread extends Model
 {
+    // traerse todos los likes
     use HasLikes;
     use HasFactory;
 
@@ -25,6 +26,7 @@ class Thread extends Model
         'user_id'
     ];
 
+    // Proteger la relación con los likes
     protected $whith = [
         'likesRelation',
     ];
@@ -48,8 +50,8 @@ class Thread extends Model
         return $this->hasMany(Thread::class);
     }
 
-     // Scope
-     public function scopeTitle($query, $value){
+    // Scope
+    public function scopeTitle($query, $value){
         if(!isset($value)){
             return $query->where('title', 'like', '%');
         }

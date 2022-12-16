@@ -5,17 +5,9 @@ namespace App\Jobs;
 use App\Exceptions\CannotLikeItem;
 use App\Models\Thread;
 use App\Models\User;
-// use Illuminate\Bus\Queueable;
-// use Illuminate\Contracts\Queue\ShouldBeUnique;
-// use Illuminate\Contracts\Queue\ShouldQueue;
-// use Illuminate\Foundation\Bus\Dispatchable;
-// use Illuminate\Queue\InteractsWithQueue;
-// use Illuminate\Queue\SerializesModels;
 
-// class LikeThreadJob implements ShouldQueue
 class LikeThreadJob
 {
-    // use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $thread;
     private $user;

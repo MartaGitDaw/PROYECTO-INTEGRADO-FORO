@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->bootEloquentMorphsRelations();
     }
 
+    // vincular relacion polimorfica
     public function bootEloquentMorphsRelations()
     {
         Relation::morphMap([
