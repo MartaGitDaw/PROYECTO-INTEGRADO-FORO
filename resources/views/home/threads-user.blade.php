@@ -12,7 +12,7 @@
             <div class="px-6 my-20">
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full flex justify-center ">
-                        <img src="{{ asset('storage/' . $user->profile_photo_path) }}"
+                        <img src="{{ asset('storage/' . $user->profile_photo_path) }}" alt="A"
                             class="shadow-xl rounded-full align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-[150px] min-w-[150px] min-h-[150px] bg-amber-400" />
                     </div>
                 </div>

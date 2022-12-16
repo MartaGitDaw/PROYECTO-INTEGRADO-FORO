@@ -50,7 +50,7 @@
                 <div class="m-3">
                     <h2 class="text-2xl bold text-blue-500">{{ $thread->title }}</h2>
                 </div>
-                @if (isset($thread->image))
+                @if ($thread->image !=0)
                     <div class=" flex justify-center mb-3">
                         <img src="{{ asset('storage/' . $thread->image) }}" alt="saman"
                             class="rounded-lg  object-cover">

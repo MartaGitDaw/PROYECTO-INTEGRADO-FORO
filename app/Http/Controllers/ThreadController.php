@@ -181,7 +181,7 @@ class ThreadController extends Controller
     // hilos de una categoria
     public function threadsCategory(Category $category)
     {
-        $threads = Thread::orderBy('id', 'desc');
+        $threads = Thread::orderBy('id', 'desc')->get();
         $comments = Comment::all();
         return view('home.threads-category', compact('category', 'threads', 'comments'));
     }

@@ -66,7 +66,7 @@ class CategoryController extends Controller
     public function showAll(Category $category)
     {
         $categories = Category::all();
-        $threads = Thread::all();
+        $threads = Thread::orderBy('id', 'desc')->get();
         return view('home.categories', compact('categories', 'threads'));
     }
 

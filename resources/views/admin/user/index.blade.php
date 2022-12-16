@@ -69,7 +69,7 @@
                                         @if ($role->name == 'moderator')
                                             <button type="submit"
                                                 class="bg-gradient-to-r from-emerald-300 to-indigo-400 rounded-md p-1"
-                                                title="User Moderator">Moderator</button>
+                                                title="User Moderator">Moderator </button>
                                         @endif
                                     @endforeach
                                 @endrole
@@ -81,7 +81,7 @@
                                     @csrf
                                     @method('POST')
                                     <button type="submit" class="rounded-md p-1 border bg-indigo-300"
-                                        title="Make Moderator">M</button>
+                                        title="Make Moderator">M <i class="far fa-user-edit"></i></button>
                                 </form>
                                 {{-- <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
                                     @csrf

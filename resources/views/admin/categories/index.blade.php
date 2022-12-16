@@ -43,14 +43,14 @@
                             </div>
                         </x-td-table>
                         <x-td-table>
-                            <div class="inline-flex">
-                                <x-blue-button-link href="{{ route('admin.categories.edit', $category->id) }}">
-                                    Modificar
-                                </x-blue-button-link>
+                            <div class="inline-flex justify-between">
+                                <a href="{{ route('admin.categories.edit', $category->id) }}" class="hover:text-blue-500 mx-5">
+                                    Edit <i class="far fa-edit"> </i>
+                                </a>
                                 <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <x-dark-button>Eliminar</x-dark-button>
+                                    <button type="submit" class="hover:text-red-500 mx-5">Delete <i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
                         </x-td-table>
