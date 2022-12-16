@@ -90,7 +90,7 @@
                             @error('content')
                             <p class="text-sm text-red-700">*** {{ $message }}</p>
                             @enderror
-                            <button type="submit" class="hover:text-blue-500">Comment</button>
+                            <button type="submit" class="hover:text-blue-500 p-1 border border-gray-500 hover:border-blue-500 rounded mt-2"><i class="far fa-paper-plane"></i> Comment</button>
                         </form>
                     </div>
                     <div class="w-full">
