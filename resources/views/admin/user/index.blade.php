@@ -80,8 +80,8 @@
                                 <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
                                     @csrf
                                     @method('POST')
-                                    <button type="submit" class="rounded-md p-1 border bg-indigo-300"
-                                        title="Make Moderator">M <i class="far fa-user-edit"></i></button>
+                                    <button type="submit" class="rounded-md p-1 border text-gray-500 hover:text-blue-500 border-gray-500 hover:border-blue-500"
+                                        title="Make Moderator"><i class="fas fa-user-plus"></i></button>
                                 </form>
                                 {{-- <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
                                     @csrf

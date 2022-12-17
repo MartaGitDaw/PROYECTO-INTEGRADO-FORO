@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">
-                <h4 class="text-3xl fonat-semibold text-blueGray-700">The quantum wall of the computer</h4>
+                <h4 class="text-3xl fonat-semibold text-blueGray-700">Quantum Bit Forum</h4>
                 <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
                     A place to share current news from your sector, your progress, achievements, or whatever comes to mind.                </h5>
                 <div class="mt-6 lg:mb-0 mb-6">
