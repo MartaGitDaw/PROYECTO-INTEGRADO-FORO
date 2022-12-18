@@ -20,6 +20,7 @@ Copiar carpeta vendor/laravel-lang/lang/locales/es en -> lang/
  >>[Laravel Jetstream](https://jetstream.laravel.com/2.x/installation.html)
  >>[Laravel Livewire](https://laravel-livewire.com/docs/2.x/quickstart)
 
+
 ```bash
 #!/bin/bash
 composer require laravel/jetstream
@@ -73,6 +74,17 @@ En config/jetstream.php
 php artisan migrate:fresh
 php artisan vendor:publish --tag=jetstream-views
 ```
+
+## Font Awesome
+
+> Los iconos utulizados son de Font Awesome. Se puede descargar o meter en los layouts el cdn.
+>>[Font Awesome](https://fontawesome.com/docs/web/setup/packages)
+
+## FakerPiscumImages
+
+> Proveedor de imágenes alternativo para fakerphp usando picsum.photos
+
+>>[fakerphp-picsum-images](https://github.com/smknstd/fakerphp-picsum-images)
 
 ## Laravel-permission SPATIE
 
@@ -193,16 +205,3 @@ database/seeders/DatabaseSeeder.php
 #!/bin/bash
 php artisan migrate:fresh -–seed
 ```
-## Likes
-
->Dar likes a hilos.
-Un hilo puede tener muchos likes, una persona puede dar muchos likes, uno a cada hilo. Lo mas probable es que más adelante se implementen likes a comentarios, y quiero poder reutilizar el modelo. Así que lo que he hecho es lo siguiente:
-
-### Crear un trait (HasLikes)
-
-#### ¿Qué es un trait?
-
->Los traits en PHP son una especie de clases abstractas que ayudan a reutilizar código y a separar funcionalidades del resto de clases. Esta característica fue añadida a partir de la versión 5.4 de PHP.
->La ventaja que ofrece un trait es que puedes reutilizar código sin la necesidad de instanciar una clase, solo agregas una línea de código en tu clase y ya tienes todo el poder de tu trait.
-
-
