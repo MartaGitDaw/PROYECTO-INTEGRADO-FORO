@@ -18,14 +18,14 @@
             <span>Edit / {{$thread->title}}</span>
         </nav>
 
-        <form action="{{route('threads.update', $thread->id)}}" method="POST">
+        <form action="{{route('threads.update', $thread->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <h2 class="text-2xl font-semibold leading-tight">Edit Thread</h2>
             <p class="my-4 opacity-70">Enter the data to edit thread.</p>
             <hr class="my-6">
-            {{-- Name --}}
+            {{-- title --}}
             <div>
                 <label class="uppercase text-sm font-bold opacity-70">Title</label>
                 <input name="title" type="text" value="{{$thread->title}}"
@@ -34,6 +34,7 @@
                     <p class="text-sm text-red-700">*** {{ $message }}</p>
                 @enderror
             </div>
+            {{-- description --}}
             <div>
                 <label class="uppercase text-sm font-bold opacity-70">Description</label>
                 <textarea name="description" type="text"
@@ -42,6 +43,7 @@
                     <p class="text-sm text-red-700">*** {{ $message }}</p>
                 @enderror
             </div>
+            {{-- image --}}
             <div class="mb-4">
                 <label class="uppercase text-sm font-bold opacity-70">
                     Picture
@@ -68,6 +70,7 @@
                                 <p class=' text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>
                                     Select a picture</p>
                             </div>
+                            {{-- image --}}
                             <input name="image" id="imagen" type='file' class="hidden" />
                         </label>
                     </div>
@@ -76,7 +79,7 @@
                     <p class="text-sm text-red-700">*** {{ $message }}</p>
                 @enderror
             </div>
-            {{-- lista_id --}}
+            {{-- category_id --}}
             <div class="mb-4">
                 <label class="uppercase text-sm font-bold opacity-70">Category</label>
                 <select name="category_id" id="category_id"
@@ -92,7 +95,7 @@
             </div>
             {{-- user_id --}}
             <input type="text" hidden name="user_id" value="{{ Auth::user()->id }}">
-            {{-- BOTONES CREAR VOLVER --}}
+            {{-- BOTONES UPDATE VOLVER --}}
             <div class="flex flex-col space-y-4 mb-6">
                 <button type="submit"
                     class="text-center py-3 px-6 my-2 bg-emerald-500 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300">
