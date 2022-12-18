@@ -83,12 +83,6 @@
                                     <button type="submit" class="rounded-md p-1 border text-gray-500 hover:text-blue-500 border-gray-500 hover:border-blue-500"
                                         title="Make Moderator"><i class="fas fa-user-plus"></i></button>
                                 </form>
-                                {{-- <form action="{{ route('admin.user.roles.assign', $user->id) }}" method="POST">
-                                    @csrf
-                                    @method('POST')
-                                    <button type="submit"
-                                        class="rounded-md p-1 border bg-red-300" title="Ban">B</button>
-                                </form> --}}
                             </div>
                         </x-td-table>
                     </tr>
